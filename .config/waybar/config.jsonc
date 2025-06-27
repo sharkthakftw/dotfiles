@@ -1,0 +1,151 @@
+{
+
+"layer": "top",
+"position": "top",
+"mode": "dock",
+"exclusive": true,
+"passthrough": false,
+"gtk-layer-shell": true,
+"height": 0,
+
+"modules-left": [
+    "custom/bt_headset",
+    "custom/bt_keyboard",
+    "custom/bt_mouse",
+    "custom/media"
+],
+
+"modules-center": [
+    "clock"
+],
+
+"modules-right": [
+    "battery",
+    "network",
+    "backlight",
+    "pulseaudio",
+    "pulseaudio#microphone",
+    "custom/power"
+],
+
+"custom/power": {
+    "format": " ",
+    "tooltip": "Power Menu",
+    "on-click": "hyprctl dispatch exit",
+    "on-click-right": "systemctl poweroff",
+    "on-click-middle": "systemctl reboot"
+},
+
+"custom/bt_headset": {
+    "exec": "~/.config/waybar/scripts/waybar-bluetooth.sh 2C:BE:EB:DE:96:D2 ''",
+    "interval": 60,
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+    "format": "{}",
+    "escape": false,
+    "id": "bt_headset"
+},
+
+"custom/bt_keyboard": {
+    "exec": "~/.config/waybar/scripts/waybar-bluetooth.sh F9:57:85:56:E6:7D ''",
+    "interval": 600,
+    "tooltip": false,
+    "format": "{}",
+    "escape": false,
+    "id": "bt_keyboard"
+},
+
+"custom/bt_mouse": {
+    "exec": "~/.config/waybar/scripts/mouse-battery.sh",
+    "interval": 600,
+    "tooltip": false,
+    "format": "{}",
+    "escape": false,
+    "id": "bt_mouse"
+},
+
+"custom/media": {
+    "exec": "~/.config/waybar/scripts/spotify-status.sh",
+    "interval": 1,
+    "on-click": "playerctl --player=spotify play-pause",
+    "on-scroll-up": "playerctl --player=spotify next",
+    "on-scroll-down": "playerctl --player=spotify previous",
+    "tooltip": false
+},
+
+"clock": {
+    "format": "{:%a - %d-%b-%Y - %X}",
+    "interval": 1,
+    "rotate": 0,
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+        "mode": "month",
+        "mode-mon-col": 3,
+        "on-scroll": 1,
+        "on-click-right": "mode",
+        "format": {
+            "months": "<span color='#c75465'><b>{}</b></span>",
+            "weekdays": "<span color='#d9a72c'><b>{}</b></span>",
+            "today": "<span color='#d04a3b'><b>{}</b></span>",
+            "days": "<span color='#7f8083'><b>{}</b></span>"
+        }
+    }
+},
+
+"backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-click": "brightnessctl s 80",
+    "on-click-right": "brightnessctl s 60",
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "min-length": 6
+},
+
+"battery": {
+    "states": {
+        "good": 90,
+        "warning": 50,
+        "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["󰂃", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+},
+
+"pulseaudio": {
+    "format": "{icon} {volume}%",
+    "tooltip": false,
+    "format-muted": "  Muted",
+    "on-click": "pamixer -t",
+    "on-scroll-up": "pamixer -i 1",
+    "on-scroll-down": "pamixer -d 1",
+    "scroll-step": 5,
+    "format-icons": {
+        "headset": "",
+        "default": ["","", "", ""]
+    }
+},
+
+"pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "  Muted",
+    "on-click": "pamixer --default-source -t",
+    "on-scroll-up": "pamixer --default-source -i 5",
+    "on-scroll-down": "pamixer --default-source -d 5",
+    "scroll-step": 5
+},
+
+"network": {
+    "tooltip": false,
+    "format-wifi": "  {essid}",
+    "on-click":"nmcli device wifi connect Sarthak",
+    "format-ethernet": "󰈀 ",
+    "format-disconnected": "󰖪 ",
+    "interval": 2
+}
+
+}

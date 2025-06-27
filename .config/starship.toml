@@ -1,0 +1,32 @@
+format = """$username$hostname $directory$git_branch$git_status$python$character
+"""
+
+add_newline = true
+
+[directory]
+style = "bold italic fg:#7F8083"
+
+[git_branch]
+style = "fg:#4993C6"
+
+[git_status]
+style = "fg:#65AD5F"
+
+[python]
+symbol = " "
+style = "fg:#C75465"
+
+[character]
+success_symbol = "[➜](bold fg:#4993C6)"
+error_symbol = "[✗](bold fg:#D04A3B)"
+
+[username]
+show_always = true
+style_user = "fg:#DADBDD"
+style_root = "fg:#D04A3B"
+format = "[$user](bold $style)"
+
+[hostname]
+style = "fg:#7F8083"
+ssh_only = false
+format = "[@$hostname](bold $style)"

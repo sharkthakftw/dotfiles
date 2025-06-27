@@ -1,0 +1,119 @@
+@define-color bg           #1A1B1F;
+@define-color fg           #DADBDD;
+@define-color accent       #C75465; /* Pink */
+@define-color green        #65AD5F; /* Lime */
+@define-color brown        #7F8083; /* Grey */
+@define-color yellow       #D9A72C; /* Gold */
+@define-color comment      #3B3C3F; /* Dark Grey */
+
+@define-color muted        #202124;
+@define-color muted_light  #2A2B2F;
+@define-color accent_light #D37838; /* Orange */
+@define-color accent_lighter #D04A3B; /* Red  */
+@define-color bg_darker    #1A1B1F;
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: JetBrainsMono Nerd Font, monospace;
+    font-weight: normal;
+    font-size: 15px;
+    min-height: 0;
+    background: transparent;
+}
+
+#custom-bt_headset,
+#custom-bt_keyboard,
+#custom-bt_mouse,
+#clock,
+#custom-media,
+#battery,
+#network,
+#backlight,
+#pulseaudio,
+#pulseaudio.microphone,
+#custom-power {
+    color: @fg;
+    background: @bg_darker;
+    border: 2px solid @accent;
+}
+
+#custom-bt_headset {
+    border-right-width: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px 0 0 10px;
+    margin: 5px 0;
+}
+
+#custom-bt_keyboard {
+    border-right-width: 0;
+    border-left-width: 0;
+    margin: 5px 0;
+    padding-right: 5px;
+}
+
+#custom-bt_mouse {
+    border-left-width: 0;
+    padding-right: 10px;
+    margin: 5px 0;
+    border-radius: 0 10px 10px 0;
+}
+
+#custom-media {
+    padding: 0 10px;
+    margin: 5px 5px;
+    border-radius: 10px;
+}
+
+#custom-power {
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin: 5px 0px;
+}
+
+#network {
+    border-radius: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 5px;
+    margin: 5px;
+}
+
+#clock {
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px 5px;
+}
+
+#battery {
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px 0;
+}
+
+#backlight {
+    border-right-width: 0;
+    border-radius: 10px 0px 0px 10px;
+    padding: 5px 5px;
+    margin: 5px 0px;
+}
+
+#pulseaudio {
+    border-left-width: 0;
+    border-right-width: 0;
+    border-radius: 0px;
+    padding: 5px 0px;
+    margin: 5px 0px;
+}
+
+#pulseaudio.microphone {
+    border-left-width: 0;
+    border-radius: 0 10px 10px 0;
+    padding: 5px 10px;
+    margin: 5px 0px;
+    margin-right: 5px;
+}
+
