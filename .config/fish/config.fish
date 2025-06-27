@@ -1,16 +1,11 @@
 set -g fish_greeting
 
-if status is-login
-    if test -z "$DISPLAY" -a (tty) = "/dev/tty1"
-        exec Hyprland
-    end
-end
-
 if status is-interactive
 
 alias dotfiles 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 alias notes 'git --git-dir=$HOME/Obsidian/sharkthak/.git --work-tree=$HOME/Obsidian/sharkthak/'
 
+# Aliases for dotfiles git commands
 alias ds 'dotfiles status -s'
 alias dd 'dotfiles diff --output-indicator-new=" " --output-indicator-old=" "'
 alias da 'dotfiles add'
@@ -24,24 +19,28 @@ alias ls 'ls --color=auto'
 alias grep 'grep --color=auto'
 alias nv 'nvim'
 
+# Aliases for pacman and yay
 alias pm 'sudo pacman -S'
 alias yay 'yay -S'
 alias update 'sudo pacman -Syu && yay -Syu'
 
+# Starship
 starship init fish | source
 
 fish_add_path /home/sharkthak/.spicetify
 fish_add_path "$HOME/spicetify"
 
-
+# SSH for GitHub
 if type -q keychain
     set -l host (string split . (prompt_hostname))
     keychain --quiet githubkey
     source ~/.keychain/$host[1]-fish
 end
 
+# MAN pages open in Neovim
 set -x MANPAGER 'nvim +Man!'
 
+# Fastfetch
 fastfetch --logo arch_small --structure users:os:shell:wm:terminal --users-format "{1}" --os-format "{1}" --shell-format "{1}" --wm-format "{1}" --terminal-format "{1}"
 
 end
