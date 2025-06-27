@@ -14,7 +14,7 @@ alias notes 'git --git-dir=$HOME/Obsidian/sharkthak/.git --work-tree=$HOME/Obsid
 alias ds 'dotfiles status -s'
 alias dd 'dotfiles diff --output-indicator-new=" " --output-indicator-old=" "'
 alias da 'dotfiles add'
-alias dc 'dotfiles commit -m'
+alias dc 'dotfiles commit -a -m'
 alias dp 'dotfiles push'
 alias dl 'dotfiles log --oneline --decorate=no -7'
 
@@ -24,12 +24,21 @@ alias ls 'ls --color=auto'
 alias grep 'grep --color=auto'
 alias nv 'nvim'
 
+alias pm 'sudo pacman -S'
+alias yay 'yay -S'
 alias update 'sudo pacman -Syu && yay -Syu'
 
 starship init fish | source
 
 fish_add_path /home/sharkthak/.spicetify
 fish_add_path "$HOME/spicetify"
+
+
+if type -q keychain
+    set -l host (string split . (prompt_hostname))
+    keychain --quiet githubkey
+    source ~/.keychain/$host[1]-fish
+end
 
 set -x MANPAGER 'nvim +Man!'
 
