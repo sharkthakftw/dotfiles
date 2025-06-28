@@ -20,12 +20,15 @@ alias grep 'grep --color=auto'
 alias nv 'nvim'
 
 # Aliases for pacman and yay
-alias pm 'sudo pacman -S'
-alias yay 'yay -S'
 alias update 'sudo pacman -Syu && yay -Syu'
+alias pm 'sudo pacman -S'
+alias y 'yay -S'
 
 # Starship
 starship init fish | source
+
+# Zoxide
+zoxide init fish | source
 
 fish_add_path /home/sharkthak/.spicetify
 fish_add_path "$HOME/spicetify"
