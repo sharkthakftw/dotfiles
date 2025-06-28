@@ -34,3 +34,5 @@ map("n", "<leader>sh", "<cmd>Telescope help_tags<cr>", { desc = "Help Tags" })
 map("n", "<leader>sr", "<cmd>Telescope oldfiles<cr>", { desc = "[S]earch [R]ecent" })
 map("n", "<leader>sw", "<cmd>Telescope grep_string<cr>", { desc = "[S]earch Current [W]ord" })
 
+-- Oil keymaps
+map("n", "-", "<cmd>Oil<CR>", { desc = "Open parent directory" })

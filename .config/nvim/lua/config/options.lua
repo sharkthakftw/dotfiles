@@ -55,3 +55,4 @@ opt.listchars = {
   nbsp = "␣"
 }
 
+vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#D37838", bg = "#1A1B1F" })

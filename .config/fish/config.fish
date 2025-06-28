@@ -24,6 +24,8 @@ alias update 'sudo pacman -Syu && yay -Syu'
 alias pm 'sudo pacman -S'
 alias y 'yay -S'
 
+alias clean 'sudo pacman -Scc --noconfirm && yay -Scc --noconfirm'
+
 # Starship
 starship init fish | source
 
