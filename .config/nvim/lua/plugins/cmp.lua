@@ -3,13 +3,13 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      "L3MON4D3/LuaSnip",             -- Snippet engine
-      "saadparwaiz1/cmp_luasnip",     -- Snippet completions
-      "hrsh7th/cmp-nvim-lsp",         -- LSP completions
-      "hrsh7th/cmp-buffer",           -- Buffer word completions
-      "hrsh7th/cmp-path",             -- File path completions
-      "hrsh7th/cmp-cmdline",          -- Cmdline completions
-      "onsails/lspkind.nvim",         -- VSCode-style icons
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "onsails/lspkind.nvim",
     },
     config = function()
       local cmp = require("cmp")

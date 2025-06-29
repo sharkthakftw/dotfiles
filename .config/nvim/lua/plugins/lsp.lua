@@ -5,7 +5,6 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
 
-      -- Example: Lua (can customize per language)
       lspconfig.lua_ls.setup({
         settings = {
           Lua = {

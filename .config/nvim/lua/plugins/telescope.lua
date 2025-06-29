@@ -1,5 +1,5 @@
 return {
-  { -- Telescope
+  {
     "nvim-telescope/telescope.nvim",
     cmd = "Telescope",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -11,13 +11,13 @@ return {
       },
     },
   },
-  { -- Nicer dialogs
+  {
     "nvim-telescope/telescope-ui-select.nvim",
     config = function()
     require("telescope").load_extension("ui-select")
     end,
   },
-  { -- File browser
+  {
     "nvim-telescope/telescope-file-browser.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()

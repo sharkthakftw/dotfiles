@@ -1,5 +1,6 @@
 local opt = vim.opt
 local cmd = vim.cmd
+local api = vim.api
 
 -- My muted camellia palette color scheme
 cmd.colorscheme 'camellia'
@@ -55,4 +56,4 @@ opt.listchars = {
   nbsp = "␣"
 }
 
-vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#D37838", bg = "#1A1B1F" })
+api.nvim_set_hl(0, "FloatBorder", { fg = "#D37838", bg = "#1A1B1F" })

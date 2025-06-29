@@ -22,6 +22,7 @@ alias nv 'nvim'
 # Aliases for pacman and yay
 alias update 'sudo pacman -Syu && yay -Syu'
 alias pm 'sudo pacman -S'
+alias pmr 'sudo pacman -Rns'
 alias y 'yay -S'
 
 alias clean 'sudo pacman -Scc --noconfirm && yay -Scc --noconfirm'
@@ -46,6 +47,6 @@ end
 set -x MANPAGER 'nvim +Man!'
 
 # Fastfetch
-fastfetch --logo arch_small --structure users:os:shell:wm:terminal --users-format "{1}" --os-format "{1}" --shell-format "{1}" --wm-format "{1}" --terminal-format "{1}"
+fastfetch --logo arch_small --structure users:os:shell:wm:terminal --users-format "{1}" --os-format "{2}" --shell-format "{1}" --wm-format "{1}" --terminal-format "{1}"
 
 end
