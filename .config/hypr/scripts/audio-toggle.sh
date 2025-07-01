@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-
 set -euo pipefail
-
 
 # Speaker ID
 function get_speaker_id {
@@ -18,7 +16,6 @@ function get_speaker_id {
             return 1
         fi
 }
-
 
 # Buds ID
 function get_buds_id {
@@ -39,7 +36,6 @@ function get_buds_id {
             return 1
         fi
 }
-
 
 buds_id=$(get_buds_id) || exit 1
 speaker_id=$(get_speaker_id) || exit 1

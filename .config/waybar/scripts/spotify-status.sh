@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-status=$(playerctl --player=spotify status 2>/dev/null)
+status=$(playerctl --player=spotify status)
 
 if [ "$status" = "Playing" ]; then
     icon=""
@@ -11,7 +11,7 @@ else
     exit 0
 fi
 
-info=$(playerctl --player=spotify metadata --format "{{ title }} - {{ artist }}" 2>/dev/null)
+info=$(playerctl --player=spotify metadata --format "{{ title }} - {{ artist }}")
 
 echo "$icon $info"
 

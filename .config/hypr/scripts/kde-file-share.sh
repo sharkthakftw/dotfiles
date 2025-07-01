@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DEVICE="nord3"
+DEVICE="$(kdeconnect-cli --list-available | grep 'paired and reachable' | grep -oP '(?<=- )[^:]+')"
 
 FILE=$(yad --file --title="Send file via KDE Connect")
 

@@ -37,17 +37,17 @@
 },
 
 "custom/bt_headset": {
-    "exec": "~/.config/waybar/scripts/waybar-bluetooth.sh 2C:BE:EB:DE:96:D2 ''",
+    "exec": "~/.config/waybar/scripts/buds-battery.sh",
     "interval": 60,
     "tooltip": false,
-    "on-click": "~/.config/waybar/scripts/bluetooth-toggle.sh",
+    "on-click": "~/.config/waybar/scripts/buds-toggle.sh",
     "format": "{}",
     "escape": false,
     "id": "bt_headset"
 },
 
 "custom/bt_keyboard": {
-    "exec": "~/.config/waybar/scripts/waybar-bluetooth.sh F9:57:85:56:E6:7D ''",
+    "exec": "~/.config/waybar/scripts/keyboard-battery.sh",
     "interval": 600,
     "tooltip": false,
     "format": "{}",
