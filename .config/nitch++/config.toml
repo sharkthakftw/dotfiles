@@ -1,0 +1,16 @@
+[modules]
+username = [ "", true ]
+hostname = [ "", true ]
+distro = [ "󰻀", true ]
+kernel = [ "󰌢", false ]
+uptime = [ "", false ]
+shell = [ "", true ]
+dewm = [ "", true ]
+pkgs = [ "󰏖", false ]
+memory = [ "󰍛", false ]
+colors = [ "", "", true ]
+
+[general]
+show_ascii = false
+width = 6
+ascii_distro = "arch"
