@@ -95,8 +95,8 @@
 "backlight": {
     "format": "{icon} {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
-    "on-click": "brightnessctl s 48000",
-    "on-click-right": "brightnessctl s 24000",
+    "on-click": "brightnessctl s 80",
+    "on-click-right": "brightnessctl s 60",
     "on-scroll-up": "brightnessctl set 1%+",
     "on-scroll-down": "brightnessctl set 1%-",
     "min-length": 6
