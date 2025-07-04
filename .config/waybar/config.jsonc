@@ -12,7 +12,8 @@
     "custom/bt_headset",
     "custom/bt_keyboard",
     "custom/bt_mouse",
-    "custom/media"
+    "custom/media",
+    "custom/cava"
 ],
 
 "modules-center": [
@@ -70,6 +71,12 @@
     "on-click": "playerctl --player=spotify play-pause",
     "on-scroll-up": "playerctl --player=spotify next",
     "on-scroll-down": "playerctl --player=spotify previous",
+    "tooltip": false
+},
+
+"custom/cava": {
+    "exec": "~/.config/waybar/scripts/waybar-cava.sh",
+    "interval": 0,
     "tooltip": false
 },
 

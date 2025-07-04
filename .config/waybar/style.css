@@ -27,6 +27,7 @@
 #custom-bt_mouse,
 #clock,
 #custom-media,
+#custom-cava,
 #battery,
 #network,
 #backlight,
@@ -63,6 +64,12 @@
 #custom-media {
     padding: 0 10px;
     margin: 5px 5px;
+    border-radius: 10px;
+}
+
+#custom-cava {
+    padding: 0px 5px;
+    margin: 5px 0px;
     border-radius: 10px;
 }
 
