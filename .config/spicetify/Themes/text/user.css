@@ -1,9 +1,4 @@
-/*  ================================
-    ROOT
-    ================================ */
-
 /* import */
-@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400;1,700&family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=B612+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Cousine:ital,wght@0,400;0,700;1,400;1,700&family=Cutive+Mono&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Fira+Code:wght@300..700&family=Fira+Mono:wght@400;500;700&family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=M+PLUS+1+Code:wght@100..700&family=Nova+Mono&family=Overpass+Mono:wght@300..700&family=Oxygen+Mono&family=PT+Mono&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Share+Tech+Mono&family=Sometype+Mono:ital,wght@0,400..700;1,400..700&family=Sono:wght@200..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Syne+Mono&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=VT323&family=Xanh+Mono:ital@0;1&display=swap");
 @import url("https://fonts.cdnfonts.com/css/asciid");
 
 /* user settings */
@@ -18,20 +13,20 @@
     --font-family-header: "asciid";
     --font-size-multiplier-header: 4;
 
-    --display-card-image: block; /* none | block */
-    --display-coverart-image: none; /* none | block */
-    --display-header-image: none; /* none | block */
-    --display-sidebar-image: block; /* none | block */
-    --display-tracklist-image: none; /* none | block */
-    --display-spicetify-banner-ascii: block; /* none | block */
-    --display-music-banner-ascii: none; /* none | block */
+    --display-card-image: block;
+    --display-coverart-image: none;
+    --display-header-image: none;
+    --display-sidebar-image: block;
+    --display-tracklist-image: none;
+    --display-spicetify-banner-ascii: block;
+    --display-music-banner-ascii: none;
 
     --border-radius: 0px;
     --border-width: 1px;
     --border-style: solid; /* dotted | dashed | solid | double | groove | ridge | inset | outset */
-    --border-transition: 0.2s ease; /* 'none' to disable  */
+    --border-transition: 0.2s ease;
 
-    --global-nav-margin-top: 40px; /* set to '0px' if you disabled window controls */
+    --global-nav-margin-top: 0px;
 }
 
 /* font */
