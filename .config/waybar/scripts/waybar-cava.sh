@@ -9,21 +9,7 @@ for ((i = 0; i < bar_length; i++)); do
     dict+=";s/$i/${bar:$i:1}/g"
 done
 
-config_file="/tmp/bar_cava_config"
-cat >"$config_file" <<EOF
-[general]
-bars = 12
-
-[input]
-method = pulse
-source = auto
-
-[output]
-method = raw
-raw_target = /dev/stdout
-data_format = ascii
-ascii_max_range = 7
-EOF
+config_file="/home/sharkthak/.config/cava/config-waybar"
 
 pkill -f "cava -p $config_file"
 

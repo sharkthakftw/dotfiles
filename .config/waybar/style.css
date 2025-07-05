@@ -8,8 +8,8 @@
 
 @define-color muted        #202124;
 @define-color muted_light  #2A2B2F;
-@define-color accent_light #D37838; /* Orange */
-@define-color accent_lighter #D04A3B; /* Red  */
+@define-color orange       #D37838;
+@define-color red          #D04A3B;
 @define-color bg_darker    #1A1B1F;
 
 * {
@@ -28,6 +28,9 @@
 #clock,
 #custom-media,
 #custom-cava,
+#tray,
+#temperature,
+#temperature.critical,
 #battery,
 #network,
 #backlight,
@@ -83,13 +86,44 @@
 
 #network {
     border-radius: 10px;
-    padding: 5px;
-    padding-left: 10px;
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+#network.disconnected {
+    border-radius: 10px;
+    padding: 5px 9px;
+    padding-right: 5px;
+    margin: 5px;
+}
+
+#network.ethernet {
+    border-radius: 10px;
+    padding: 5px 10px;
     padding-right: 5px;
     margin: 5px;
 }
 
 #clock {
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px 5px;
+}
+
+#tray {
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px 5px;
+}
+
+#temperature {
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px 5px;
+}
+
+#temperature.critical {
+    color: @red;
     border-radius: 10px;
     padding: 5px 10px;
     margin: 5px 5px;
