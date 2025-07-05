@@ -112,11 +112,12 @@
     "on-click-right": "brightnessctl s 60",
     "on-scroll-up": "brightnessctl set 1%+",
     "on-scroll-down": "brightnessctl set 1%-",
-    "min-length": 6
+    "min-length": 6,
+    "tooltip": false
 },
 
 "temperature": {
-    "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon9/temp1_input",
+    "thermal-zone": 3,
     "critical-threshold": 80,
     "format-critical": " {temperatureC}°C",
     "format": " {temperatureC}°C",

@@ -1,16 +1,14 @@
 @define-color bg           #1A1B1F;
 @define-color fg           #DADBDD;
-@define-color accent       #C75465; /* Pink */
-@define-color green        #65AD5F; /* Lime */
-@define-color brown        #7F8083; /* Grey */
-@define-color yellow       #D9A72C; /* Gold */
-@define-color comment      #3B3C3F; /* Dark Grey */
-
+@define-color pink         #C75465;
+@define-color green        #65AD5F;
+@define-color grey         #7F8083;
+@define-color yellow       #D9A72C;
+@define-color darkgrey     #3B3C3F;
 @define-color muted        #202124;
 @define-color muted_light  #2A2B2F;
 @define-color orange       #D37838;
 @define-color red          #D04A3B;
-@define-color bg_darker    #1A1B1F;
 
 * {
     border: none;
@@ -38,8 +36,8 @@
 #pulseaudio.microphone,
 #custom-power {
     color: @fg;
-    background: @bg_darker;
-    border: 2px solid @accent;
+    background: @bg;
+    border: 2px solid @pink;
 }
 
 #custom-bt_headset {
@@ -123,7 +121,7 @@
 }
 
 #temperature.critical {
-    color: @red;
+    color: @orange;
     border-radius: 10px;
     padding: 5px 10px;
     margin: 5px 5px;
