@@ -133,6 +133,20 @@
     margin: 5px 0;
 }
 
+#battery.warning {
+    color: @orange;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px 0;
+}
+
+#battery.critical {
+    color: @red;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 5px 0;
+}
+
 #backlight {
     border-right-width: 0;
     border-radius: 10px 0px 0px 10px;
