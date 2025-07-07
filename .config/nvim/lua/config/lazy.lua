@@ -5,7 +5,6 @@ require("lazy").setup({
   { import = "plugins.treesitter" },
   { import = "plugins.cmp" },
   { import = "plugins.oil" },
-  { import = "plugins.terminal" },
 
   install = {
     colorscheme = { "camellia" },
