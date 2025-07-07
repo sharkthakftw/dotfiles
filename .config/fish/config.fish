@@ -2,6 +2,8 @@ set -g fish_greeting
 
 if status is-interactive
 
+fish_vi_key_bindings
+
 alias dotfiles 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 alias notes 'git --git-dir=$HOME/Obsidian/sharkthak/.git --work-tree=$HOME/Obsidian/sharkthak/'
 
