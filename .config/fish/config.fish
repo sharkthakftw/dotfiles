@@ -4,6 +4,8 @@ if status is-interactive
 
 fish_vi_key_bindings
 
+alias clear 'clear && nitch -n'
+
 # Aliases for aria2
 alias ariahouse 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.House'
 

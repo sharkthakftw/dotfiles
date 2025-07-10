@@ -71,7 +71,7 @@
   },
   "theme.bar.floating": false,
   "theme.bar.location": "top",
-  "bar.autoHide": "never",
+  "bar.autoHide": "fullscreen",
   "theme.bar.buttons.enableBorders": false,
   "theme.bar.buttons.borderSize": "0.125em",
   "theme.bar.border.location": "none",

@@ -37,7 +37,7 @@
 #custom-power {
     color: @fg;
     background: @bg;
-    border: 2px solid @pink;
+    border: 0px solid @pink;
 }
 
 #custom-bt_headset {
