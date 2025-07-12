@@ -34,7 +34,7 @@
   "theme.bar.menus.feinttext": "#7f8083",
   "theme.bar.menus.label": "#dadbdd",
   "theme.bar.menus.border.size": "0.15em",
-  "theme.bar.menus.border.radius": "0.7em",
+  "theme.bar.menus.border.radius": "0.5em",
   "theme.bar.menus.border.color": "#c75365",
   "theme.bar.menus.popover.text": "#dadbdd",
   "theme.bar.menus.popover.background": "#1a1b1f",
@@ -253,7 +253,7 @@
   "theme.bar.menus.menu.systray.dropdownmenu.text": "#dadbdd",
   "theme.bar.menus.menu.systray.dropdownmenu.divider": "#1a1b1f",
   "menus.power.showLabel": true,
-  "menus.power.lowBatteryThreshold": 40,
+  "menus.power.lowBatteryThreshold": 50,
   "bar.customModules.cpuTemp.showUnit": true,
   "theme.bar.buttons.modules.cpuTemp.spacing": "0.5em",
   "bar.customModules.cpuTemp.round": true,
@@ -407,5 +407,9 @@
   "theme.bar.border.width": "0.1em",
   "menus.clock.weather.key": "b9571b4158d04ef8918114408251007",
   "menus.clock.weather.interval": 1000,
-  "menus.clock.weather.enabled": true
+  "menus.clock.weather.enabled": true,
+  "theme.bar.buttons.modules.cava.spacing": "0.5em",
+  "bar.customModules.cava.showActiveOnly": true,
+  "bar.customModules.cava.spaceCharacter": " ",
+  "bar.battery.label": true
 }
