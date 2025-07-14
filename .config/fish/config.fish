@@ -52,6 +52,16 @@ if type -q keychain
     source ~/.keychain/$host[1]-fish
 end
 
+# Yazi
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if read -z cwd < "$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+
 # MAN pages open in Neovim
 set -x MANPAGER 'nvim +Man!'
 
