@@ -5,7 +5,7 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     opts = {
       ensure_installed = {
-        "lua", "vim", "vimdoc", "bash", "markdown", "markdown_inline", "json", "html", "css", "javascript", "typescript", "c", "cpp"
+        "lua", "vim", "vimdoc", "bash", "markdown", "markdown_inline", "json", "html", "css", "javascript", "typescript", "c", "cpp", "qmljs"
       },
       highlight = {
         enable = true,
