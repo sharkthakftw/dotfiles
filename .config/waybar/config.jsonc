@@ -39,17 +39,17 @@
 },
 
 "custom/bt_headset": {
-    "exec": "~/.config/waybar/scripts/buds-battery.sh",
+    "exec": "~/.config/waybar/scripts/buds-battery",
     "interval": 60,
     "tooltip": false,
-    "on-click": "~/.config/waybar/scripts/buds-toggle.sh",
+    "on-click": "~/.config/waybar/scripts/buds-toggle",
     "format": "{}",
     "escape": false,
     "id": "bt_headset"
 },
 
 "custom/bt_keyboard": {
-    "exec": "~/.config/waybar/scripts/keyboard-battery.sh",
+    "exec": "~/.config/waybar/scripts/keyboard-battery",
     "interval": 600,
     "tooltip": false,
     "format": "{}",
@@ -58,7 +58,7 @@
 },
 
 "custom/bt_mouse": {
-    "exec": "~/.config/waybar/scripts/mouse-battery.sh",
+    "exec": "~/.config/waybar/scripts/mouse-battery",
     "interval": 600,
     "tooltip": false,
     "format": "{}",
@@ -67,7 +67,7 @@
 },
 
 "custom/media": {
-    "exec": "~/.config/waybar/scripts/spotify-status.sh",
+    "exec": "~/.config/waybar/scripts/spotify-status",
     "interval": 1,
     "on-click": "playerctl --player=spotify play-pause",
     "on-scroll-up": "playerctl --player=spotify next",
@@ -76,7 +76,7 @@
 },
 
 "custom/cava": {
-    "exec": "~/.config/waybar/scripts/waybar-cava.sh",
+    "exec": "~/.config/waybar/scripts/waybar-cava",
     "interval": 0,
     "tooltip": false
 },
