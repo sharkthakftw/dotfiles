@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+BUDS_MAC=$(bluetoothctl devices | grep "CMF Buds" | grep -oE '([0-9A-F]{2}:){5}[0-9A-F]{2}')
+buds_battery=$(bluetoothctl info "$BUDS_MAC" | grep 'Battery Percentage' | grep -oP '\(\K[0-9]+(?=\))')
+
+KB_MAC=$(bluetoothctl devices | grep "HP 350/355 Series Keyboard" | grep -oE '([0-9A-F]{2}:){5}[0-9A-F]{2}')
+kb_battery=$(bluetoothctl info "$KB_MAC" | grep 'Battery Percentage' | grep -oP '\(\K[0-9]+(?=\))')
+
+mouse_battery=$(upower -d | grep -A12 'Logitech G304' | awk '/percentage:/ {print $2}')
+
+notify-send -t 3000 "Battery Status" "\n :$buds_battery%\n\n :$kb_battery%\n\n🖱️:$mouse_battery"
