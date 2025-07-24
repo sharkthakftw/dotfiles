@@ -7,8 +7,9 @@ fish_vi_key_bindings
 alias clear 'clear && nitch -n'
 
 # Aliases for aria2
-alias ariahouse 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.House'
+alias ariahouse 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.house'
 alias ariamovies 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.movies'
+alias ariasaul 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.saul'
 
 alias dotfiles 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 alias notes 'git --git-dir=$HOME/Obsidian/sharkthak/.git --work-tree=$HOME/Obsidian/sharkthak/'
