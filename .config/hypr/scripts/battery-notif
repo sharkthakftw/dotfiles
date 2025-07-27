@@ -8,4 +8,29 @@ kb_battery=$(bluetoothctl info "$KB_MAC" | grep 'Battery Percentage' | grep -oP 
 
 mouse_battery=$(upower -d | grep -A12 'Logitech G304' | awk '/percentage:/ {print $2}')
 
-notify-send -t 3000 "Battery Status" "\n :$buds_battery%\n\n :$kb_battery%\n\n🖱️:$mouse_battery"
+TROLLER_MAC=$(bluetoothctl devices | grep "Battle Dragon" | grep -oE '([0-9A-F]{2}:){5}[0-9A-F]{2}')
+troller_battery=$(bluetoothctl info "$TROLLER_MAC" | grep 'Battery Percentage' | grep -oP '\(\K[0-9]+(?=\))')
+
+if [[ -z $mouse_battery ]]; then
+    mouse_battery="N/A"
+fi
+
+if [[ -z $kb_battery ]]; then
+    kb_battery="N/A"
+else
+    kb_battery="$kb_battery%"
+fi
+
+if [[ -z $buds_battery ]]; then
+    buds_battery="N/A"
+else
+    buds_battery="$buds_battery%"
+fi
+
+if [[ -z $troller_battery ]]; then
+    troller_battery="N/A"
+else
+    troller_battery="$troller_battery%"
+fi
+
+notify-send -t 3000 "Battery Status" " :$buds_battery\n\n :$kb_battery\n\n🖱️:$mouse_battery\n\n :$troller_battery"
