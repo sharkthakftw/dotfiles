@@ -35,7 +35,7 @@ alias pmr 'sudo pacman -Rns'
 alias y 'yay -S'
 alias yr 'yay -Rns'
 
-alias clean 'sudo pacman -Scc --noconfirm && yay -Scc --noconfirm'
+alias clean 'yay -Scc --noconfirm'
 
 # Starship
 starship init fish | source
