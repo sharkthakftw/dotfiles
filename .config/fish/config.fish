@@ -37,6 +37,10 @@ alias yr 'yay -Rns'
 
 alias clean 'yay -Scc --noconfirm'
 
+alias astrobhopal 'astroterm -a 23.2599 -o 77.4126 -Ccu'
+
+alias lutcam 'lutgen apply -p camellia'
+
 # Starship
 starship init fish | source
 

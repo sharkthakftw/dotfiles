@@ -15,6 +15,6 @@ QtObject {
 
   // Font
   property string fontFamily: "JetBrainsMono Nerd Font"
-  property string fontSize: 15
+  property int fontSize: 15
   property int fontWeight: 500
 }
