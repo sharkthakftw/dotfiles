@@ -18,7 +18,7 @@ opt.cmdheight = 0
 
 -- Tabs & Indentations
 opt.tabstop = 2
-opt.shiftwidth = 4
+opt.shiftwidth = 2
 opt.expandtab = true
 opt.smartindent = true
 opt.autoindent = true
