@@ -1,6 +1,6 @@
 import Quickshell
 import QtQuick
 
-Loader {
-  source: "panel.qml"
+ShellRoot {
+  Panel {}
 }

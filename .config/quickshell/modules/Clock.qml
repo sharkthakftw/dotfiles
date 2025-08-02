@@ -1,35 +1,29 @@
-import Quickshell
-import Quickshell.Io
+import "../Theme.qml" as Theme
 import QtQuick
+import Quickshell.Io
 
-PanelWindow {
-  anchors {
-    top: true
-    left: true
-    right: true
-  }
-  color: "transparent"
-  implicitHeight: 45
-  implicitWidth: Screen.width
+Item {
+  id: root
+  width: 200
+  height: 40
 
   Rectangle {
     id: bg
-    color: "#1A1B1F"
-    radius: 6
-    anchors.leftMargin: -10
-    anchors.rightMargin: -10
-    anchors.topMargin: -6
-    anchors.bottomMargin: -6
+    color: "#1a1b1f"
+    radius: 8
+    anchors.fill: parent
+    anchors.topMargin: 4
+    anchors.bottomMargin: 4
+    anchors.leftMargin: -15
+    anchors.rightMargin: -15
     z: -1
-    anchors.fill: clock
   }
 
   Text {
     id: clock
     text: ""
-    anchors.horizontalCenter: parent.horizontalCenter
-    anchors.verticalCenter: parent.verticalCenter
-    color: "#DADBDD"
+    anchors.centerIn: parent
+    color: "#dadbdd"
     font.pixelSize: 15
     font.family: "Monospace"
     font.weight: 500
