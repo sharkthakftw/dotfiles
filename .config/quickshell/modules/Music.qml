@@ -1,21 +1,12 @@
 import QtQuick
 import Quickshell.Io
+import qs.config
 
 Item {
   id: root
   height: 40
 
-  Rectangle {
-    id: bg
-    z: -1
-    radius: 8
-    color: "#1a1b1f"
-    anchors.fill: parent
-    anchors.topMargin: 4
-    anchors.bottomMargin: 4
-    anchors.leftMargin: -15
-    anchors.rightMargin: -15
-  }
+  ModuleBackground {}
 
   Row {
     id: row
@@ -28,18 +19,18 @@ Item {
       Text {
         anchors.fill: parent
 //        text: " "
-        font.pixelSize: 18
-        color: "#dadbdd"
+        font.pixelSize: Appearance.fontSizeBig
+        color: Appearance.fg
       }
     }
 
     Text {
       id: songText
       text: "..."
-      font.pixelSize: 15
-      font.family: "Monospace"
-      font.weight: 500
-      color: "#dadbdd"
+      font.pixelSize: Appearance.fontSize
+      font.family: Appearance.fontFamily
+      font.weight: Appearance.fontWeight
+      color: Appearance.fg
       elide: Text.ElideNone
       wrapMode: Text.NoWrap
     }

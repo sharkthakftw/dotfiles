@@ -1,4 +1,4 @@
-pragma singleton
+pragma Singleton
 import QtQuick
 
 QtObject {
@@ -16,5 +16,10 @@ QtObject {
   // Font
   property string fontFamily: "JetBrainsMono Nerd Font"
   property int fontSize: 15
+  property int fontSizeBig: 18
   property int fontWeight: 500
+
+  property int borderRadius: 8
+  property int borderWidth: 0
+  property color borderColor: pink
 }
