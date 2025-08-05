@@ -1,0 +1,7 @@
+/*
+ * Camellia GTK4 Theme - Dark Variant
+ *
+ * This file simply imports the main stylesheet.
+ * Since the base theme is already dark, we don't need to override any colors.
+ */
+@import url("gtk.css");

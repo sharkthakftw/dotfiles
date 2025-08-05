@@ -1,0 +1,185 @@
+@define-color theme_bg_color #1A1B1F;      /* Main Background */
+@define-color theme_view_bg_color #202124; /* Mid BG (for text views, entries) */
+@define-color theme_header_bg_color #2A2B2F; /* Light BG (for headerbars, cards) */
+@define-color theme_border_color #3B3C3F;   /* Dark Grey (for borders, separators) */
+@define-color theme_secondary_fg_color #7F8083; /* Grey (for secondary/dim text) */
+@define-color theme_fg_color #DADBDD;       /* Main Foreground */
+
+@define-color accent_red #D04A3B;
+@define-color accent_pink #C75465;
+@define-color accent_orange #D37838;
+@define-color accent_gold #D9A72C;
+@define-color accent_lime #65AD5F;
+@define-color accent_teal #5BCBB2;
+@define-color accent_blue #4993C6;
+@define-color accent_violet #8F63CC;
+@define-color accent_beige #CBB6A0;
+
+/* We can also create functional aliases */
+@define-color window_bg_color @theme_bg_color;
+@define-color window_fg_color @theme_fg_color;
+@define-color view_bg_color @theme_view_bg_color;
+@define-color view_fg_color @theme_fg_color;
+@define-color headerbar_bg_color @theme_header_bg_color;
+@define-color headerbar_fg_color @theme_fg_color;
+@define-color card_bg_color @theme_header_bg_color;
+@define-color card_fg_color @theme_fg_color;
+@define-color popover_bg_color @theme_header_bg_color;
+@define-color popover_fg_color @theme_fg_color;
+
+/* The main accent color for your theme */
+@define-color accent_color @accent_pink;
+@define-color accent_bg_color @accent_color;
+@define-color accent_fg_color #ffffff;
+
+/* Destructive/Error states */
+@define-color destructive_color @accent_red;
+@define-color destructive_bg_color @accent_red;
+@define-color destructive_fg_color #ffffff;
+
+/* Success states */
+@define-color success_color @accent_lime;
+@define-color success_bg_color @accent_lime;
+@define-color success_fg_color #ffffff;
+
+/* Warning states */
+@define-color warning_color @accent_orange;
+@define-color warning_bg_color @accent_gold;
+@define-color warning_fg_color #1A1B1F;
+
+
+/* ----------------- */
+/* -- BASE STYLES -- */
+/* ----------------- */
+/* Apply the palette to the most common elements.
+ * This gives you an instant result.
+ */
+
+/* Default text color */
+* {
+  color: @window_fg_color;
+  border-color: @theme_border_color;
+  /* Remove default shadows */
+  text-shadow: none;
+  box-shadow: none;
+}
+
+/* Window Background */
+window.background, .background {
+  background-color: @window_bg_color;
+}
+
+/* Text Views, Entries, etc. */
+view, textview, entry {
+  background-color: @view_bg_color;
+  border-radius: 6px;
+  border: 1px solid @theme_border_color;
+}
+
+entry:focus {
+    border-color: @accent_color;
+}
+
+/* Headerbar */
+headerbar {
+  background-color: @headerbar_bg_color;
+  border: none;
+  padding: 4px;
+}
+
+headerbar separator {
+    opacity: 0;
+}
+
+/* Popovers and Menus */
+popover.background, menu {
+    background-color: @popover_bg_color;
+    border: 0px solid @theme_border_color;
+    padding: 0px;
+    border-radius: 20px;
+}
+
+menu separator {
+    background-color: @theme_border_color;
+    -gtk-icon-source: none;
+    border: none;
+    min-height: 1px;
+    margin: 4px 0;
+}
+
+/* Sidebar and Lists */
+.sidebar, list {
+    background-color: @theme_header_bg_color;
+}
+
+row, list row {
+    background-color: transparent;
+    border-radius: 6px;
+    margin: 2px 4px;
+}
+
+row:hover, list row:hover {
+    background-color: alpha(@theme_border_color, 0.5);
+}
+
+row:selected, list row:selected {
+    background-color: @accent_color;
+    color: @accent_fg_color;
+}
+
+/* Buttons */
+button {
+  background-color: @theme_header_bg_color;
+  border: 1px solid @theme_border_color;
+  border-radius: 6px;
+}
+
+button:hover {
+  background-color: alpha(@theme_border_color, 0.5);
+}
+
+button:active {
+  background-color: @theme_border_color;
+}
+
+/* Suggested Action Button (e.g., "Save", "Open") */
+button.suggested-action {
+  background-color: @accent_bg_color;
+  color: @accent_fg_color;
+  border: none;
+}
+
+button.suggested-action:hover {
+    background-color: lighter(@accent_bg_color);
+}
+
+button.suggested-action:active {
+    background-color: darker(@accent_bg_color);
+}
+
+
+/* Destructive Action Button (e.g., "Delete") */
+button.destructive-action {
+  background-color: @destructive_bg_color;
+  color: @destructive_fg_color;
+  border: none;
+}
+
+button.destructive-action:hover {
+    background-color: lighter(@destructive_bg_color);
+}
+
+button.destructive-action:active {
+    background-color: darker(@destructive_bg_color);
+}
+
+/* ----------------- */
+/* -- DARK VARIANT -- */
+/* ----------------- */
+/* For this starter, the dark variant is the same as the light.
+ * You can create a gtk-dark.css file that simply imports this one:
+ * @import url("gtk.css");
+ */
+@media (prefers-color-scheme: dark) {
+  /* You could override specific colors for the dark theme here if needed */
+}
