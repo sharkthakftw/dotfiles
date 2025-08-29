@@ -74,3 +74,6 @@ set -x MANPAGER 'nvim +Man!'
 nitch -n
 
 end
+
+# Created by `pipx` on 2025-08-31 17:42:58
+set PATH $PATH /home/sharkthak/.local/bin
