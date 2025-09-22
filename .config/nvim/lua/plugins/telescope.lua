@@ -7,7 +7,7 @@ return {
       defaults = {
         layout_strategy = "horizontal",
         layout_config = { height = 0.9 },
-        file_ignore_patterns = { "node_modules", "%.git/", "/Games" },
+        file_ignore_patterns = { "node_modules", "%.git/", "/Games", "venv" },
       },
     },
   },
