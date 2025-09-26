@@ -67,6 +67,11 @@ function yz
     rm -f -- "$tmp"
 end
 
+# g++
+function gpp
+    g++ "$argv".cpp -o "$argv"
+end
+
 # MAN pages open in Neovim
 set -x MANPAGER 'nvim +Man!'
 
