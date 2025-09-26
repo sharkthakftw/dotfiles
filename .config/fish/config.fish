@@ -11,10 +11,9 @@ alias ariahouse 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.house.co
 alias ariamovies 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.movies.conf'
 alias ariatorrents 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.torrent.conf'
 
-alias dotfiles 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
-alias notes 'git --git-dir=$HOME/Obsidian/sharkthak/.git --work-tree=$HOME/Obsidian/sharkthak/'
 
 # Aliases for dotfiles git commands
+alias dotfiles 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
 alias ds 'dotfiles status -s'
 alias dd 'dotfiles diff --output-indicator-new=" " --output-indicator-old=" "'
 alias da 'dotfiles add'
@@ -22,9 +21,11 @@ alias dc 'dotfiles commit -a -m'
 alias dp 'dotfiles push'
 alias dl 'dotfiles log --oneline --decorate=no -7'
 
+alias notes 'git --git-dir=$HOME/Obsidian/sharkthak/.git --work-tree=$HOME/Obsidian/sharkthak/'
 alias ns 'notes status -s'
 
-alias ls 'ls --color=auto'
+alias ls 'eza'
+alias tree 'eza -T'
 alias grep 'grep --color=auto'
 alias nv 'nvim'
 
@@ -67,9 +68,14 @@ function yz
     rm -f -- "$tmp"
 end
 
+# gcc
+function cexec
+    gcc "$argv".c -o "$argv" && ./"$argv" && rm "$argv"
+end
+
 # g++
 function gpp
-    g++ "$argv".cpp -o "$argv"
+    g++ "$argv".cpp -o "$argv" && ./"$argv" && rm "$argv"
 end
 
 # MAN pages open in Neovim
