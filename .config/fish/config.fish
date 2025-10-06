@@ -87,4 +87,7 @@ set PATH $PATH /home/sharkthak/.local/bin
 # Nitch
 nitch -n
 
+# Suppress Node.js deprecation warnings for gemini-cli
+set -x NODE_OPTIONS --no-deprecation
+
 end
