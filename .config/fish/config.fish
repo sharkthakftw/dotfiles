@@ -4,8 +4,6 @@ if status is-interactive
 
 fish_vi_key_bindings
 
-alias clear 'clear && nitch -n'
-
 # Aliases for aria2
 alias ariahouse 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.house.conf'
 alias ariamovies 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.movies.conf'
@@ -83,9 +81,6 @@ set -x MANPAGER 'nvim +Man!'
 
 # Created by `pipx`
 set PATH $PATH /home/sharkthak/.local/bin
-
-# Nitch
-nitch -n
 
 # Suppress Node.js deprecation warnings for gemini-cli
 set -x NODE_OPTIONS --no-deprecation
