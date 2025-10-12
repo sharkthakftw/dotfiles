@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+hyprshot -s -m region --clipboard-only --freeze
+
+wl-paste | tesseract stdin ~/text
+cat ~/text.txt | wl-copy
+
+rm ~/text.txt
