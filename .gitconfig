@@ -1,3 +1,24 @@
 [user]
-	name = sharkthak
-	email = sharkthakftw@gmail.com
+  email = sharkthakftw@gmail.com
+  name = sharkthakftw
+
+[init]
+  defaultBranch = master
+
+[core]
+  compression = 9
+  whitespace = error
+  preloadindex = true
+  repositoryformatversion = 0
+  filemode = true
+  bare = true
+
+[advice]
+  addEmptyPathSpec = false
+  pushNonFastForward = false
+  statusHints = false
+
+[diff]
+  context = 3
+  renames = copies
+  interHunkContext=10
