@@ -8,6 +8,7 @@ fish_vi_key_bindings
 alias ariahouse 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.house.conf'
 alias ariamovies 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.movies.conf'
 alias ariatorrents 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.torrent.conf'
+alias ariabear 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.bear.conf'
 
 
 # Aliases for dotfiles git commands
@@ -28,7 +29,7 @@ alias grep 'grep --color=auto'
 alias nv 'nvim'
 
 # Aliases for pacman and yay
-alias update 'sudo pacman -Syu && yay -Syu'
+alias update 'yay -Syu'
 alias pm 'sudo pacman -S'
 alias pmr 'sudo pacman -Rns'
 alias y 'yay -S'
@@ -86,3 +87,10 @@ set PATH $PATH /home/sharkthak/.local/bin
 set -x NODE_OPTIONS --no-deprecation
 
 end
+
+# pnpm
+set -gx PNPM_HOME "/home/sharkthak/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
