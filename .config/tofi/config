@@ -11,6 +11,7 @@ font = JetBrainsMono Nerd Font
 font-size = 24
 
 text-color = #DADBDD
+selection-color = #C75465
 prompt-text = ":"
 
-background-color = "#1a1b1fdd"
+background-color = "#1A1B1FCC"
