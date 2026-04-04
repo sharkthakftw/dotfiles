@@ -33,8 +33,7 @@
   "bar.layouts": {
     "0": {
       "left": [
-        "media",
-        "cava"
+        "media"
       ],
       "middle": [
         "clock",

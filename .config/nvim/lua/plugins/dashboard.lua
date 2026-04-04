@@ -21,7 +21,7 @@ return {
             '',
           },
           shortcut = {
-            { desc = 'New File', group = 'DashboardShortCut', key = 'n', action = 'enew' },
+            { desc = 'Explorer', group = 'DashboardShortCut', key = 'e', action = 'Telescope file_browser' },
             { desc = 'Recent Files', group = 'DashboardShortCut', key = 'r', action = 'Telescope oldfiles' },
             { desc = 'Lazy', group = 'DashboardShortCut', key = 'l', action = 'Lazy' },
             { desc = 'Quit', group = 'DashboardShortCut', key = 'q', action = 'q' },
