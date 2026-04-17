@@ -83,7 +83,7 @@ set -x MANPAGER 'nvim +Man!'
 # Created by `pipx`
 set PATH $PATH /home/sharkthak/.local/bin
 
-# Suppress Node.js deprecation warnings for gemini-cli
+# Suppress Node.js warnings
 set -x NODE_OPTIONS --no-deprecation
 
 end

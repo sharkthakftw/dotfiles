@@ -19,7 +19,7 @@ function get_speaker_id {
 
 # Buds ID
 function get_buds_id {
-    local buds="CMF Buds"
+    local buds="CMF Buds Pro 2"
     local sinks=$(wpctl status | grep -A7 "Sinks:" | grep "$buds" || true)
     if [[ -z "$sinks" ]]; then
         notify-send -t 2000 "Error" "Buds not connected"  # Error popup
