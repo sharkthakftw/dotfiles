@@ -1,0 +1,149 @@
+[general]
+font-sans = "JetBrainsMono Nerd Font"
+font-mono = "JetBrainsMono Nerd Font"
+
+[bar]
+padding = 0.5
+bg = "transparent"
+border-width = 2
+button-variant = "basic"
+button-icon-size = 0.8999999761581421
+button-rounding = "md"
+button-group-background = "bg-base"
+
+[[bar.layout]]
+monitor = "*"
+show = true
+left = [
+    "dashboard",
+    "media",
+]
+center = [
+    "weather",
+    "clock",
+    "notifications",
+]
+right = [
+    "network",
+    "bluetooth",
+    { name = "audio", modules = [
+    "volume",
+    "microphone",
+] },
+    "battery",
+    "power",
+]
+
+[styling.palette]
+bg = "#1a1b1f"
+surface = "#2a2b2f"
+elevated = "#1a1b1f"
+fg = "#dadbdd"
+fg-muted = "#7f8083"
+primary = "#c75465"
+red = "#d04a3b"
+yellow = "#d9a72c"
+green = "#65ad5f"
+blue = "#4993c6"
+
+[modules.battery]
+border-color = "accent"
+icon-color = "fg-default"
+icon-bg-color = "bg-base"
+label-color = "fg-default"
+button-bg-color = "bg-base"
+
+[modules.bluetooth]
+border-color = "accent"
+icon-color = "fg-default"
+icon-bg-color = "bg-base"
+label-show = false
+label-color = "fg-default"
+button-bg-color = "bg-base"
+
+[modules.cava]
+bars = 14
+stereo = true
+color = "fg-default"
+button-bg-color = "bg-base"
+
+[modules.clock]
+format = "%a - %d-%b - %H:%M:%S"
+icon-show = false
+icon-color = "fg-default"
+icon-bg-color = "fg-default"
+label-color = "fg-default"
+button-bg-color = "bg-base"
+dropdown-show-seconds = true
+
+[modules.dashboard]
+border-color = "accent"
+icon-color = "fg-default"
+icon-bg-color = "bg-base"
+
+[modules.media]
+border-color = "accent"
+icon-color = "fg-default"
+icon-bg-color = "bg-base"
+label-color = "fg-default"
+button-bg-color = "bg-base"
+
+[modules.microphone]
+icon-color = "fg-default"
+icon-bg-color = "bg-base"
+label-color = "fg-default"
+button-bg-color = "bg-base"
+scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05+"
+scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 0.05-"
+
+[modules.network]
+icon-color = "fg-default"
+icon-bg-color = "bg-base"
+label-show = false
+label-color = "fg-default"
+button-bg-color = "bg-base"
+
+[modules.notification]
+border-color = "accent"
+icon-color = "fg-default"
+icon-bg-color = "bg-base"
+label-show = false
+label-color = "fg-default"
+button-bg-color = "bg-base"
+popup-duration = 3000
+
+[modules.power]
+border-color = "accent"
+icon-color = "fg-default"
+icon-bg-color = "bg-base"
+right-click = "systemctl poweroff"
+middle-click = "systemctl reboot"
+left-click = "loginctl terminate-session $XDG_SESSION_ID"
+
+[modules.volume]
+border-color = "accent"
+icon-color = "fg-default"
+icon-bg-color = "bg-base"
+label-color = "fg-default"
+button-bg-color = "bg-base"
+right-click = "~/.config/hypr/scripts/audio-toggle"
+scroll-up = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"
+scroll-down = "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"
+
+[modules.weather]
+provider = "weather-api"
+location = "Bhopal"
+weatherapi-key = "56cf8d7c8aaf4d34af3114504251007"
+icon-color = "fg-default"
+icon-bg-color = "bg-base"
+label-color = "fg-default"
+button-bg-color = "bg-base"
+
+[osd]
+duration = 2000
+margin = 75.0
+
+[[wallpaper.monitors]]
+name = "eDP-1"
+fit-mode = "fit"
+wallpaper = "/home/sharkthak/.config/wallpapers/pixel-computer.png"
