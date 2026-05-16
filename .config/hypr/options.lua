@@ -47,7 +47,7 @@ hl.config({
     misc = {
         force_default_wallpaper = 0,
         disable_hyprland_logo = true,
-        focus_on_activate = true,
+        focus_on_activate = false,
         font_family = "monospace",
         on_focus_under_fullscreen = 0,
     },
@@ -96,7 +96,8 @@ hl.config({
             rounding = 5,
             rounding_power = 2,
             round_only_edges = true,
-            keep_upper_gap = true,
+            keep_upper_gap = false,
+            middle_click_close = false,
             col = {
                 active = "rgba(c75465ff)",
                 inactive = "rgba(3b3c3fff)",

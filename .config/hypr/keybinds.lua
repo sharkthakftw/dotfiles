@@ -48,6 +48,7 @@ hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("hyprshot -s -m region --clipboard-o
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("hyprshot -s -m window -m active -o ~/Pictures -f grab.png"), { description = "Capture active window" })
 hl.bind("SUPER + C", hl.dsp.exec_cmd("hyprpicker -arl"))
 hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind("SUPER + SHIFT + D", hl.dsp.exec_cmd("wayle notify dnd"), { description = "DND for Wayle" })
 
 -- KDE Connect
 hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("kdeconnect-cli --send-clipboard -n nord3"), { description = "KDE Connect send clipboard" })
