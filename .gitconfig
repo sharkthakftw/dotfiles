@@ -12,6 +12,7 @@
   repositoryformatversion = 0
   filemode = true
   bare = true
+	editor = nvim
 
 [advice]
   addEmptyPathSpec = false

@@ -8,6 +8,7 @@
 .local/share/
 .config/discord/
 .config/Vencord/
+.config/nvim
 .config/obsidian/
 .cache
 
