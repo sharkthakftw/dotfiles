@@ -1,25 +1,41 @@
 [user]
-  email = sharkthakftw@gmail.com
-  name = sharkthakftw
+    email = sharkthakftw@gmail.com
+    name = sharkthakftw
 
 [init]
-  defaultBranch = master
+    defaultBranch = master
 
 [core]
-  compression = 9
-  whitespace = error
-  preloadindex = true
-  repositoryformatversion = 0
-  filemode = true
-  bare = true
-	editor = nvim
+    compression = 9
+    whitespace = error
+    preloadindex = true
+    editor = nvim
+    pager = diff-so-fancy | less --tabs=4 -RF
+
+[interactive]
+    diffFilter = diff-so-fancy --patch
+
+[pull]
+    rebase = true
+
+[push]
+    autoSetupRemote = true
 
 [advice]
-  addEmptyPathSpec = false
-  pushNonFastForward = false
-  statusHints = false
+    addEmptyPathSpec = false
+    pushNonFastForward = false
+    statusHints = false
 
 [diff]
-  context = 3
-  renames = copies
-  interHunkContext=10
+    colorMoved = zebra
+    context = 3
+    renames = copies
+    interHunkContext=10
+
+[alias]
+    alias = config --get-regexp alias
+    logone = log --oneline -7
+    st = status -s
+
+[diff-so-fancy]
+    shortHeaders = true

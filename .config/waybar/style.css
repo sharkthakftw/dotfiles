@@ -20,9 +20,6 @@
     background: transparent;
 }
 
-#custom-bt_headset,
-#custom-bt_keyboard,
-#custom-bt_mouse,
 #clock,
 #custom-media,
 #custom-cava,
@@ -38,28 +35,6 @@
     color: @fg;
     background: @bg;
     border: 0px solid @pink;
-}
-
-#custom-bt_headset {
-    border-right-width: 0;
-    padding-right: 10px;
-    padding-left: 10px;
-    border-radius: 10px 0 0 10px;
-    margin: 5px 0;
-}
-
-#custom-bt_keyboard {
-    border-right-width: 0;
-    border-left-width: 0;
-    margin: 5px 0;
-    padding-right: 10px;
-}
-
-#custom-bt_mouse {
-    border-left-width: 0;
-    padding-right: 10px;
-    margin: 5px 0;
-    border-radius: 0 10px 10px 0;
 }
 
 #custom-media {

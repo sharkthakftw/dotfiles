@@ -1,8 +1,8 @@
 hl.monitor({
-  output = "",
-  mode = "highres",
-  position = "auto",
-  scale = 1,
+    output = "",
+    mode = "highres",
+    position = "auto",
+    scale = 1,
 })
 
 hl.config({
@@ -87,6 +87,7 @@ hl.config({
         },
         groupbar = {
             enabled = true,
+            disable_when_only = true,
             scrolling = false,
             height = 20,
             indicator_height = 3,

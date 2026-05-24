@@ -1,32 +1,58 @@
-format = """$directory$git_branch$git_status$python$character
+format = """
+$directory\
+$git_branch\
+$git_state\
+$cmd_duration\
+$python\
+$line_break\
+$character\
 """
-
 add_newline = true
 
 [directory]
 style = "bold italic fg:#7F8083"
+read_only = " ro"
 
 [git_branch]
-style = "fg:#D04A3B"
+symbol = "git "
+style = "fg:#8F63CC"
+ignore_bare_repo = false
 
-[git_status]
-style = "fg:#65AD5F"
+# [git_status]
+# ahead = ">"
+# behind = "<"
+# diverged = "<>"
+# renamed = "r"
+# deleted = "x"
+# modified = "m"
+# style = "fg:#65AD5F"
+
+[git_commit]
+tag_symbol = " tag "
 
 [python]
-symbol = " "
-style = "fg:#4993C6"
+symbol = "py "
+style = "fg:#D9A72C"
+
+[nodejs]
+symbol = "nodejs "
 
 [character]
-success_symbol = "[➜](bold fg:#65AD5F)"
-error_symbol = "[✗](bold fg:#D04A3B)"
+success_symbol = "[>](bold fg:#65AD5F)"
+error_symbol = "[x](bold fg:#D04A3B)"
+vimcmd_symbol = "[<](bold fg:#65AD5F)"
+vimcmd_visual_symbol = "[<](bold fg:#D9A72C)"
+vimcmd_replace_symbol = "[<](bold fg:#8F63CC)"
+vimcmd_replace_one_symbol = "[<](bold fg:#8F63CC)"
+
+[hostname]
+ssh_symbol = "ssh "
+style = "fg:#7F8083"
+ssh_only = false
+format = "[@$hostname](bold $style) "
 
 [username]
 show_always = true
 style_user = "fg:#DADBDD"
 style_root = "fg:#D04A3B"
 format = "[$user](bold $style)"
-
-[hostname]
-style = "fg:#7F8083"
-ssh_only = false
-format = "[@$hostname](bold $style)"

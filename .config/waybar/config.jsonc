@@ -9,9 +9,6 @@
 "height": 0,
 
 "modules-left": [
-    "custom/bt_headset",
-    "custom/bt_keyboard",
-    "custom/bt_mouse",
     "custom/media",
     "custom/cava"
 ],
@@ -36,34 +33,6 @@
     "on-click": "hyprctl dispatch exit",
     "on-click-right": "systemctl poweroff",
     "on-click-middle": "systemctl reboot"
-},
-
-"custom/bt_headset": {
-    "exec": "~/.config/waybar/scripts/buds-battery",
-    "interval": 60,
-    "tooltip": false,
-    "on-click": "~/.config/waybar/scripts/buds-toggle",
-    "format": "{}",
-    "escape": false,
-    "id": "bt_headset"
-},
-
-"custom/bt_keyboard": {
-    "exec": "~/.config/waybar/scripts/keyboard-battery",
-    "interval": 600,
-    "tooltip": false,
-    "format": "{}",
-    "escape": false,
-    "id": "bt_keyboard"
-},
-
-"custom/bt_mouse": {
-    "exec": "~/.config/waybar/scripts/mouse-battery",
-    "interval": 600,
-    "tooltip": false,
-    "format": "{}",
-    "escape": false,
-    "id": "bt_mouse"
 },
 
 "custom/media": {

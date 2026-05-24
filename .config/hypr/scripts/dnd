@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+dnd=$(wayle notify status)
+
+if [[ $dnd == *"enabled"* ]]; then
+    wayle notify dnd
+    notify-send -t 2000 -u low "DND" "Disabled"
+else
+    notify-send -t 2000 -u critical "DND" "Enabled"
+    wayle notify dnd
+fi

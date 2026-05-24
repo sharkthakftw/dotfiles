@@ -1,16 +1,3 @@
-/**
- * @name system24
- * @description a tui-like discord theme.
- * @author refact0r
- * @version 2.0.0
- * @invite nz87hXyvcy
- * @website https://github.com/refact0r/system24
- * @source https://github.com/refact0r/system24/blob/master/theme/system24.theme.css
- * @authorId 508863359777505290
- * @authorLink https://www.refact0r.dev
-*/
-
-/* import theme modules */
 @import url('https://refact0r.github.io/system24/build/system24.css');
 
 body {

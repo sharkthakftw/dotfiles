@@ -103,7 +103,7 @@ label-show = false
 label-color = "fg-default"
 button-bg-color = "bg-base"
 
-[modules.notification]
+[modules.notifications]
 border-color = "accent"
 icon-color = "fg-default"
 icon-bg-color = "bg-base"
@@ -116,9 +116,9 @@ popup-duration = 3000
 border-color = "accent"
 icon-color = "fg-default"
 icon-bg-color = "bg-base"
-right-click = "systemctl poweroff"
-middle-click = "systemctl reboot"
-left-click = "loginctl terminate-session $XDG_SESSION_ID"
+right-click = 'hyprshutdown -p "systemctl reboot"'
+middle-click = "loginctl terminate-session $XDG_SESSION_ID"
+left-click = 'hyprshutdown -p "systemctl poweroff"'
 
 [modules.volume]
 border-color = "accent"

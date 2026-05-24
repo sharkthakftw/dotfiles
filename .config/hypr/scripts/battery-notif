@@ -33,4 +33,15 @@ else
     troller_battery="$troller_battery%"
 fi
 
-notify-send -t 3000 "Battery Status" " :$buds_battery\n\n :$kb_battery\n\n🖱️:$mouse_battery\n\n :$troller_battery"
+notify () {
+    notify-send -t 2000 -u low "Battery Status" " :$buds_battery\n\n :$kb_battery\n\n🖱️:$mouse_battery\n\n :$troller_battery"
+}
+dnd=$(wayle notify status)
+
+if [[ $dnd == *"enabled"* ]]; then
+    wayle notify dnd
+    notify
+    wayle notify dnd
+else
+    notify
+fi

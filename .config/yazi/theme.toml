@@ -2,7 +2,7 @@
 
 # vim:fileencoding=utf-8:foldmethod=marker
 
-# : Flavor {{{
+# : flavor {{{
 
 [flavor]
 dark  = ""
@@ -11,88 +11,88 @@ light = ""
 # : }}}
 
 
-# : Manager {{{
+# : manager {{{
 
 [mgr]
 cwd = { fg = "cyan" }
 
-# Hovered
+# hovered
 hovered         = { reversed = true }
 preview_hovered = { underline = true }
 
-# Find
+# find
 find_keyword  = { fg = "yellow", bold = true, italic = true, underline = true }
 find_position = { fg = "magenta", bg = "reset", bold = true, italic = true }
 
-# Symlink
+# symlink
 symlink_target = { italic = true }
 
-# Marker
+# marker
 marker_copied   = { fg = "lightgreen",  bg = "lightgreen" }
 marker_cut      = { fg = "lightred",    bg = "lightred" }
 marker_marked   = { fg = "lightcyan",   bg = "lightcyan" }
 marker_selected = { fg = "lightyellow", bg = "lightyellow" }
 
-# Count
+# count
 count_copied   = { fg = "white", bg = "green" }
 count_cut      = { fg = "white", bg = "red" }
 count_selected = { fg = "white", bg = "yellow" }
 
-# Border
+# border
 border_symbol = "│"
 border_style  = { fg = "gray" }
 
-# Highlighting
+# highlighting
 syntect_theme = ""
 
 # : }}}
 
 
-# : Tabs {{{
+# : tabs {{{
 
 [tabs]
 active   = { bg = "blue", bold = true }
 inactive = { fg = "blue", bg = "gray" }
 
-# Separator
+# separator
 sep_inner = { open = "", close = "" }
 sep_outer = { open = "", close = "" }
 
 # : }}}
 
 
-# : Mode {{{
+# : mode {{{
 
 [mode]
 normal_main = { bg = "blue", bold = true }
 normal_alt  = { fg = "blue", bg = "gray" }
 
-# Select mode
+# select mode
 select_main = { bg = "red", bold = true }
 select_alt  = { fg = "red", bg = "gray" }
 
-# Unset mode
+# unset mode
 unset_main = { bg = "red", bold = true }
 unset_alt  = { fg = "red", bg = "gray" }
 
 # : }}}
 
 
-# : Status bar {{{
+# : status bar {{{
 
 [status]
 overall   = {}
 sep_left  = { open = "", close = "" }
 sep_right = { open = "", close = "" }
 
-# Permissions
+# permissions
 perm_sep   = { fg = "darkgray" }
 perm_type  = { fg = "green" }
 perm_read  = { fg = "yellow" }
 perm_write = { fg = "red" }
 perm_exec  = { fg = "cyan" }
 
-# Progress
+# progress
 progress_label  = { bold = true }
 progress_normal = { fg = "blue", bg = "black" }
 progress_error  = { fg = "red", bg = "black" }
@@ -100,7 +100,7 @@ progress_error  = { fg = "red", bg = "black" }
 # : }}}
 
 
-# : Which {{{
+# : which {{{
 
 [which]
 cols            = 3
@@ -114,7 +114,7 @@ separator_style = { fg = "darkgray" }
 # : }}}
 
 
-# : Confirmation {{{
+# : confirmation {{{
 
 [confirm]
 border     = { fg = "blue" }
@@ -128,27 +128,27 @@ btn_labels = [ "  [Y]es  ", "  (N)o  " ]
 # : }}}
 
 
-# : Spotter {{{
+# : spotter {{{
 
 [spot]
 border = { fg = "blue" }
 title  = { fg = "blue" }
 
-# Table
+# table
 tbl_col  = { fg = "blue" }
 tbl_cell = { fg = "yellow", reversed = true }
 
 # : }}}
 
 
-# : Notification {{{
+# : notification {{{
 
 [notify]
 title_info  = { fg = "green" }
 title_warn  = { fg = "yellow" }
 title_error = { fg = "red" }
 
-# Icons
+# icons
 icon_info  = ""
 icon_warn  = ""
 icon_error = ""
@@ -156,7 +156,7 @@ icon_error = ""
 # : }}}
 
 
-# : Picker {{{
+# : picker {{{
 
 [pick]
 border   = { fg = "blue" }
@@ -166,7 +166,7 @@ inactive = {}
 # : }}}
 
 
-# : Input {{{
+# : input {{{
 
 [input]
 border   = { fg = "blue" }
@@ -177,14 +177,14 @@ selected = { reversed = true }
 # : }}}
 
 
-# : Completion {{{
+# : completion {{{
 
 [cmp]
 border   = { fg = "blue" }
 active   = { reversed = true }
 inactive = {}
 
-# Icons
+# icons
 icon_file    = ""
 icon_folder  = ""
 icon_command = ""
@@ -192,7 +192,7 @@ icon_command = ""
 # : }}}
 
 
-# : Task manager {{{
+# : task manager {{{
 
 [tasks]
 border  = { fg = "blue" }
@@ -202,7 +202,7 @@ hovered = { fg = "magenta", underline = true }
 # : }}}
 
 
-# : Help menu {{{
+# : help menu {{{
 
 [help]
 on      = { fg = "cyan" }
@@ -214,34 +214,34 @@ footer  = { fg = "black", bg = "white" }
 # : }}}
 
 
-# : File-specific styles {{{
+# : file-specific styles {{{
 
 [filetype]
 rules = [
-	# Images
+	# images
 	{ mime = "image/*", fg = "yellow" },
 
-	# Media
+	# media
 	{ mime = "{audio,video}/*", fg = "magenta" },
 
-	# Archives
+	# archives
 	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "red" },
 
-	# Documents
+	# documents
 	{ mime = "application/{pdf,doc,rtf}", fg = "cyan" },
 
-	# Empty files
+	# empty files
 	# { mime = "inode/empty", fg = "red" },
 
-	# Special files
+	# special files
 	{ name = "*", is = "orphan", bg = "red" },
 	{ name = "*", is = "exec"  , fg = "green" },
 
-	# Dummy files
+	# dummy files
 	{ name = "*", is = "dummy", bg = "red" },
 	{ name = "*/", is = "dummy", bg = "red" },
 
-	# Fallback
+	# fallback
 	# { name = "*", fg = "white" },
 	{ name = "*/", fg = "blue" }
 ]
@@ -249,7 +249,7 @@ rules = [
 # : }}}
 
 
-# : Icons {{{
+# : icons {{{
 
 [icon]
 globs = []
@@ -934,7 +934,7 @@ exts = [
 	{ name = "🔥", text = "", fg = "#ff4c1f" },
 ]
 conds = [
-	# Special files
+	# special files
 	{ if = "orphan", text = "" },
 	{ if = "link", text = "" },
 	{ if = "block", text = "" },
@@ -944,7 +944,7 @@ conds = [
 	{ if = "sticky", text = "" },
 	{ if = "dummy", text = "" },
 
-	# Fallback
+	# fallback
 	{ if = "dir", text = "" },
 	{ if = "exec", text = "" },
 	{ if = "!dir", text = "" },

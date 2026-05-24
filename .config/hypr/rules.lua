@@ -43,14 +43,14 @@ float_center(
 
 hl.window_rule({
     name = "beeper",
-    match = { class = "BeeperTexts" },
+    match = { class = "Beeper" },
     float = true,
+    center = true,
     size = { 800, 800 },
     max_size = { 800, 800 },
-    move = { 558, 158 },
 })
 
--- Workspace 1
+-- workspace 1
 hl.window_rule({
     name = "zen browser",
     match = { title = "^(Zen Browser)$" },
@@ -74,7 +74,7 @@ float_center(
     { title = "Library" }
 )
 
--- Workspace 2
+-- workspace 2
 hl.window_rule({
     name = "vesktop",
     match = { class = "vesktop" },
@@ -112,34 +112,12 @@ hl.window_rule({
     group = "set invade",
 })
 hl.window_rule({
-    name = "r2modman",
-    match = { class = "r2modman" },
-    workspace = 2,
-    group = "set invade",
-})
-hl.window_rule({
     name = "blender",
     match = { class = "blender" },
     workspace = 2,
 })
--- hl.window_rule({
---     name  = "bottles",
---     match = { class = "com.usebottles.bottles" },
---     workspace = 2,
---     float = true,
---     size  = { 600, 600 },
---     move  = { 1318, 478 },
---     group = "barred",
--- })
--- hl.window_rule({
---     name  = "bottles2",
---     match = { class = "bottles" },
---     size  = { 600, 600 },
---     move  = { 1318, 478 },
---     group = "barred",
--- })
 
--- Workspace 3
+-- workspace 3
 hl.window_rule({
     name = "vlc",
     match = { class = "vlc" },
@@ -161,10 +139,16 @@ float_center(
     { title = "^(Open Directory — VLC media player)$" }
 )
 
--- Workspace 4
+-- workspace 4
 hl.window_rule({
     name = "obsidian",
     match = { class = "obsidian" },
+    workspace = 4,
+    group = "set invade",
+})
+hl.window_rule({
+    name = "sioyek",
+    match = { class = "sioyek" },
     workspace = 4,
 })
 hl.window_rule({
@@ -192,12 +176,13 @@ hl.window_rule({
     group = "set invade",
 })
 
--- Special workspace: terminal
+-- special workspace: terminal
 hl.window_rule({
     name = "kitty",
     match = { class = "kitty" },
     workspace = "special:terminal",
     fullscreen_state = "2 0",
+    focus_on_activate = true,
 })
 hl.workspace_rule({
     workspace = "special:terminal",
