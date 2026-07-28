@@ -9,8 +9,9 @@ alias ariasaul 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.saul.conf
 alias ariahouse 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.house.conf'
 
 # aliases for git commands
+alias lg 'lazygit'
+alias ld 'lazygit -g $HOME/.dotfiles/ -w $HOME/'
 alias dotfiles 'git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME/'
-alias lazydot 'lazygit -g $HOME/.dotfiles/ -w $HOME/'
 alias ds 'dotfiles st'
 alias dd 'dotfiles diff'
 alias da 'dotfiles add'
