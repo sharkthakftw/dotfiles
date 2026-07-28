@@ -26,11 +26,9 @@ alias tree 'eza -T'
 alias grep 'grep --color=auto'
 
 # aliases for pacman and yay
-alias update 'yay -Syu'
-alias pm 'sudo pacman -S'
-alias pmr 'sudo pacman -Rns'
-alias y 'yay -S'
-alias yr 'yay -Rns'
+alias update 'haj jump'
+alias install 'haj install'
+alias remove 'haj toss'
 alias clean 'yay -Scc --noconfirm'
 
 alias icat 'kitten icat'
