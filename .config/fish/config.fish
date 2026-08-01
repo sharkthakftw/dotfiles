@@ -26,7 +26,7 @@ alias ls 'eza'
 alias tree 'eza -T'
 alias grep 'grep --color=auto'
 
-# aliases for pacman and yay
+# aliases for package management
 alias update 'haj jump'
 alias install 'haj install'
 alias remove 'haj toss'
@@ -36,25 +36,17 @@ alias icat 'kitten icat'
 alias astrobhopal 'astroterm -a 23.2599 -o 77.4126 -Ccu'
 alias lutcam 'lutgen apply -p camellia'
 
+# aliases for rust
+alias cr 'cargo run -- '
+
 starship init fish | source
 zoxide init fish | source
 
 fish_add_path /home/sharkthak/.spicetify
 fish_add_path "$HOME/spicetify"
 
-# ssh for github
-if type -q keychain
-    set -l host (string split . (prompt_hostname))
-    keychain --quiet githubkey
-    if test -f ~/.keychain/$host[1]-sh
-        for line in (string split ';' < ~/.keychain/$host[1]-sh)
-            set -l kv (string match -r '^\s*([A-Z_]+)=(.*)$' -- $line)
-            if test (count $kv) -eq 3
-                set -gx $kv[2] $kv[3]
-            end
-        end
-    end
-end
+# ssh
+set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 # yazi
 function yz

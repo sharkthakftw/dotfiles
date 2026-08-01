@@ -2,13 +2,11 @@ gui:
   theme:
     selectedLineBgColor:
       - underline
-
   scrollHeight: 4
   scrollOffMargin: 4
   showListFooter: false
   showFileTree: false
   showRandomTip: false
-
 git:
-  pagers:
-    - pager: diff-so-fancy
+  diffRenderers:
+    - command: diff-so-fancy

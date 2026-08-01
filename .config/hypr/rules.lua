@@ -142,7 +142,7 @@ float_center(
 -- workspace 4
 hl.window_rule({
     name = "obsidian",
-    match = { class = "obsidian" },
+    match = { class = "md.Obsidian" },
     workspace = 4,
     group = "set invade",
 })
