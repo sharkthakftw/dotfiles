@@ -1,6 +1,7 @@
 [user]
     email = sharkthakftw@gmail.com
     name = sharkthakftw
+    signingkey = /home/sharkthak/.ssh/githubkey.pub
 
 [init]
     defaultBranch = master
@@ -39,3 +40,7 @@
 
 [diff-so-fancy]
     shortHeaders = true
+[gpg]
+    format = ssh
+[commit]
+    gpgsign = true
