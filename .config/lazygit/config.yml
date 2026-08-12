@@ -8,5 +8,6 @@ gui:
   showFileTree: false
   showRandomTip: false
 git:
+  overrideGpg: true
   diffRenderers:
     - command: diff-so-fancy

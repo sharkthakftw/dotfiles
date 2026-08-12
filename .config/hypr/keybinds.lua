@@ -14,7 +14,6 @@ hl.bind("SUPER + SHIFT + TAB", function()
     hl.dispatch(hl.dsp.window.cycle_next())
     hl.dispatch(hl.dsp.window.bring_to_top())
 end)
--- hl.bind("SUPER + SHIFT + G", hl.dsp.group.move_out())
 hl.bind("SUPER + G", hl.dsp.group.toggle())
 hl.bind("SUPER + Q", hl.dsp.window.close())
 hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
@@ -26,10 +25,11 @@ hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOUR
 -- launchers
 hl.bind("SUPER + Space", hl.dsp.exec_cmd(programs.menu))
 hl.bind("SUPER + T", hl.dsp.exec_cmd(programs.terminal))
-hl.bind("SUPER + N", hl.dsp.exec_cmd(programs.code))
 hl.bind("SUPER + E", hl.dsp.exec_cmd(programs.filemanager))
+hl.bind("SUPER + N", hl.dsp.exec_cmd("pidof nvim || " .. programs.code))
+hl.bind("SUPER + K", hl.dsp.exec_cmd("pidof wikid || " .. programs.wikid))
 hl.bind("SUPER + B", hl.dsp.exec_cmd("beeper"))
-hl.bind("SUPER + W", hl.dsp.exec_cmd("zen-browser"))
+hl.bind("SUPER + W", hl.dsp.exec_cmd("hyprctl clients | grep zen || zen-browser"))
 
 -- zooming
 local function zoomfunction(value)
@@ -48,14 +48,17 @@ hl.bind("SUPER + Minus", function() zoomfunction(-1.5) end, { repeating = true, 
 hl.bind("SUPER + Equal", function() zoomfunction(1.5) end, { repeating = true, description = "Misc: Zoom in" })
 
 -- hypr ecosystem
-hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("hyprshot -s -m region --clipboard-only --freeze"), { description = "Capture region to clipboard" })
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("hyprshot -s -m window -m active -o ~/Pictures -f grab.png"), { description = "Capture active window" })
+hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("hyprshot -s -m region --clipboard-only --freeze"),
+    { description = "Capture region to clipboard" })
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("hyprshot -s -m window -m active -o ~/Pictures -f grab.png"),
+    { description = "Capture active window" })
 hl.bind("SUPER + C", hl.dsp.exec_cmd("hyprpicker -arl"))
 hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind("SUPER + escape", hl.dsp.exec_cmd("wayle panel toggle"))
 
 -- kde connect
-hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("kdeconnect-cli --send-clipboard -n nord3"), { description = "KDE Connect send clipboard" })
+hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("kdeconnect-cli --send-clipboard -n nord3"),
+    { description = "KDE Connect send clipboard" })
 hl.bind("SUPER + CTRL + F", script("kde-file-share"), { description = "KDE Connect file sharing" })
 
 -- scripts

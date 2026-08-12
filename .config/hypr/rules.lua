@@ -142,7 +142,7 @@ float_center(
 -- workspace 4
 hl.window_rule({
     name = "obsidian",
-    match = { class = "md.Obsidian" },
+    match = { class = "md.obsidian.Obsidian" },
     workspace = 4,
     group = "set invade",
 })
@@ -150,6 +150,7 @@ hl.window_rule({
     name = "sioyek",
     match = { class = "sioyek" },
     workspace = 4,
+    group = "set invade",
 })
 hl.window_rule({
     name = "arduino ide",

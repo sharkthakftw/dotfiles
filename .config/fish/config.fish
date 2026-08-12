@@ -27,9 +27,9 @@ alias tree 'eza -T'
 alias grep 'grep --color=auto'
 
 # aliases for package management
-alias update 'haj jump'
-alias install 'haj install'
-alias remove 'haj toss'
+alias y 'yay -S'
+alias update 'yay -Syu'
+alias remove 'yay -Rns'
 alias clean 'yay -Scc --noconfirm'
 
 alias icat 'kitten icat'
@@ -46,7 +46,9 @@ fish_add_path /home/sharkthak/.spicetify
 fish_add_path "$HOME/spicetify"
 
 # ssh
-set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/ssh-agent.socket"
+if status is-interactive
+    keychain --quiet --eval --nogui ~/.ssh/githubkey | source
+end
 
 # yazi
 function yz
