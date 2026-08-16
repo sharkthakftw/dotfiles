@@ -32,12 +32,14 @@ alias update 'yay -Syu'
 alias remove 'yay -Rns'
 alias clean 'yay -Scc --noconfirm'
 
+# aliases for rust
+alias cr 'cargo run -- '
+
+alias gay 'agy -c'
 alias icat 'kitten icat'
 alias astrobhopal 'astroterm -a 23.2599 -o 77.4126 -Ccu'
 alias lutcam 'lutgen apply -p camellia'
 
-# aliases for rust
-alias cr 'cargo run -- '
 
 starship init fish | source
 zoxide init fish | source
