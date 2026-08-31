@@ -11,6 +11,9 @@ mouse_battery=$(upower -d | grep -A12 'Logitech G304' | awk '/percentage:/ {prin
 TROLLER_MAC=$(bluetoothctl devices | grep "Battle Dragon" | grep -oE '([0-9A-F]{2}:){5}[0-9A-F]{2}')
 troller_battery=$(bluetoothctl info "$TROLLER_MAC" | grep 'Battery Percentage' | grep -oP '\(\K[0-9]+(?=\))')
 
+PHONE_ID=$(qdbus6 org.kde.kdeconnect /modules/kdeconnect org.kde.kdeconnect.daemon.devices true false | head -n1)
+phone_battery=$(qdbus6 org.kde.kdeconnect "/modules/kdeconnect/devices/$PHONE_ID/battery" org.kde.kdeconnect.device.battery.charge)
+
 if [[ -z $mouse_battery ]]; then
     mouse_battery="N/A"
 fi
@@ -33,8 +36,20 @@ else
     troller_battery="$troller_battery%"
 fi
 
+if [[ -z $phone_battery ]]; then
+    phone_battery="N/A"
+else
+    phone_battery="$phone_battery%"
+fi
+
+msg="phone:      $phone_battery
+buds:       $buds_battery
+keyboard:   $kb_battery
+mouse:      $mouse_battery
+controller: $troller_battery"
+
 notify () {
-    notify-send -t 2000 -u low "Battery Status" " :$buds_battery\n\n :$kb_battery\n\n🖱️:$mouse_battery\n\n :$troller_battery"
+    notify-send -t 2000 -u low "Battery Status" "$msg"
 }
 dnd=$(wayle notify status)
 
