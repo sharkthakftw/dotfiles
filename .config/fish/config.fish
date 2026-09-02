@@ -27,10 +27,10 @@ alias tree 'eza -T'
 alias grep 'grep --color=auto'
 
 # aliases for package management
-alias y 'yay -S'
-alias update 'yay -Syu'
-alias remove 'yay -Rns'
-alias clean 'yay -Scc --noconfirm'
+alias yi 'yay -S'
+alias yup 'yay -Syu'
+alias yrns 'yay -Rns'
+alias yscc 'yay -Scc --noconfirm'
 
 # aliases for rust
 alias cr 'cargo run -- '

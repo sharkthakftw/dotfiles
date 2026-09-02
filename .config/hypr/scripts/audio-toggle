@@ -40,9 +40,6 @@ function get_buds_id {
 buds_id=$(get_buds_id) || exit 1
 speaker_id=$(get_speaker_id) || exit 1
 
-wpctl set-volume "$buds_id" 0.50    # ensures volume is 50%
-wpctl set-volume "$speaker_id" 1.00    # ensures volume is 100%
-
 current_default=$(wpctl status | sed -n '/Sinks:/,/^ ├─ /{ /^ ├─ /!p }' | grep '\*')
 current_default="${current_default##*│}"    # remove leading non-digit characters to isolate the id
 current_default="${current_default%%.*}"            # keep only up to the first '.'
