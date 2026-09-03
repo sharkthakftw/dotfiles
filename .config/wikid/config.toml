@@ -1,0 +1,36 @@
+[general]
+liked_readonly = true
+auto_restore_session = false
+confirm_quit = false
+hint_mode = "semantic"
+
+[reader]
+scroll_lines = 3
+underline_links = false
+show_footnotes = true
+show_external_links = true
+toc_section_numbers = true
+heading_marker = true
+code_line_numbers = false
+show_images = true
+image_protocol = "kitty"
+halfblock_filter = "catmullrom"
+max_image_height = 25
+
+[ui]
+rounded_borders = false
+icons = false
+scroll_indicator = false
+stats = false
+
+[search]
+limit = 15
+
+[network]
+timeout = 10
+offline_cache = true
+cache_lifetime = 24
+
+[input]
+mouse_support = true
+scroll_speed = 3
