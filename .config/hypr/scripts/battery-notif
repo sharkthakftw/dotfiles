@@ -49,7 +49,7 @@ mouse:      $mouse_battery
 controller: $troller_battery"
 
 notify () {
-    notify-send -t 2000 -u low "Battery Status" "$msg"
+    notify-send -t 2000 -u low "battery status" "$msg"
 }
 dnd=$(wayle notify status)
 
