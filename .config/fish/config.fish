@@ -3,10 +3,9 @@ if status is-interactive
 fish_vi_key_bindings
 
 # aliases for aria2
-alias ariamovies 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.movies.conf'
-alias ariatorrents 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.torrent.conf'
-alias ariasaul 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.saul.conf'
-alias ariahouse 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.house.conf'
+alias movie 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.movies.conf'
+alias torrent 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.torrent.conf'
+alias house 'aria2c --conf-path=/home/sharkthak/.config/aria2/aria2.house.conf'
 
 # aliases for git commands
 alias lg 'lazygit'
@@ -90,6 +89,3 @@ set -gx PNPM_HOME "/home/sharkthak/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
-
-# Added by Antigravity CLI installer
-set -gx PATH "/home/sharkthak/.local/bin" $PATH

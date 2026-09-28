@@ -187,5 +187,9 @@ hl.window_rule({
 })
 hl.workspace_rule({
     workspace = "special:terminal",
-    on_created_empty = programs.terminal,
 })
+hl.on("workspace.created", function(ws)
+    if ws.name == "special:terminal" and ws.is_empty then
+        hl.exec_cmd(programs.terminal, { workspace = ws.name .. " silent" })
+    end
+end)
