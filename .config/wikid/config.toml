@@ -2,7 +2,7 @@
 liked_readonly = true
 auto_restore_session = false
 confirm_quit = false
-hint_mode = "semantic"
+hint_mode = "numbered"
 
 [reader]
 scroll_lines = 3
@@ -22,6 +22,7 @@ rounded_borders = false
 icons = false
 scroll_indicator = false
 stats = false
+dim_inactive_panes = false
 
 [search]
 limit = 15
