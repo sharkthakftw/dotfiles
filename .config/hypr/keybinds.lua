@@ -28,7 +28,6 @@ hl.bind("SUPER + T", hl.dsp.exec_cmd(programs.terminal))
 hl.bind("SUPER + E", hl.dsp.exec_cmd(programs.filemanager))
 hl.bind("SUPER + N", hl.dsp.exec_cmd("pidof nvim || " .. programs.code))
 hl.bind("SUPER + K", hl.dsp.exec_cmd("pidof wikid || " .. programs.wikid))
-hl.bind("SUPER + B", hl.dsp.exec_cmd("beeper"))
 hl.bind("SUPER + W", hl.dsp.exec_cmd("hyprctl clients | grep zen || zen-browser"))
 
 -- zooming
@@ -88,6 +87,8 @@ for i = 1, 4 do
 end
 hl.bind("SUPER + grave", hl.dsp.workspace.toggle_special("terminal"))
 hl.bind("SUPER + CTRL + grave", hl.dsp.window.move({ workspace = "special:terminal" }))
+hl.bind("SUPER + B", hl.dsp.workspace.toggle_special("msg"))
+hl.bind("SUPER + CTRL + B", hl.dsp.window.move({ workspace = "special:msg" }))
 
 -- function keys
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })

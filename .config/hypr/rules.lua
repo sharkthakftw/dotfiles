@@ -44,10 +44,9 @@ float_center(
 hl.window_rule({
     name = "beeper",
     match = { class = "Beeper" },
-    float = true,
-    center = true,
-    size = { 800, 800 },
-    max_size = { 800, 800 },
+    workspace = "special:msg",
+    fullscreen_state = "2 0",
+    focus_on_activate = true,
 })
 
 -- workspace 1
@@ -191,5 +190,15 @@ hl.workspace_rule({
 hl.on("workspace.created", function(ws)
     if ws.name == "special:terminal" and ws.is_empty then
         hl.exec_cmd(programs.terminal, { workspace = ws.name .. " silent" })
+    end
+end)
+
+-- special workspace: msg
+hl.workspace_rule({
+    workspace = "special:msg",
+})
+hl.on("workspace.created", function(ws)
+    if ws.name == "special:msg" and ws.is_empty then
+        hl.exec_cmd("beeper", { workspace = ws.name .. " silent" })
     end
 end)
