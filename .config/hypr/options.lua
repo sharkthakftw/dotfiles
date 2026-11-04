@@ -2,7 +2,7 @@ hl.monitor({
     output = "",
     mode = "highres",
     position = "auto",
-    scale = 1,
+    scale = 1.20,
 })
 
 hl.config({
