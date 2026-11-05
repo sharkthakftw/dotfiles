@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Dynamic Ly TUI login box for hyprlock
+# Maintains the exact 51-char box width regardless of username length
+
+user="${HYPRLOCK_USER:-${USER:-$(whoami)}}"
+
+title="hi ${user} <3"
+tlen=${#title}
+
+# 46 - tlen gives the exact number of dashes to make line 1 exactly 51 chars
+dash_count=$(( 46 - tlen ))
+if [ "$dash_count" -lt 1 ]; then
+    dash_count=1
+fi
+dashes=$(printf "%0.s─" $(seq 1 "$dash_count"))
+
+# 37 - len(user) gives exact spaces to make line 3 exactly 51 chars
+pad_login=$(( 37 - ${#user} ))
+spaces_login=""
+if [ "$pad_login" -gt 0 ]; then
+    spaces_login=$(printf "%*s" "$pad_login" "")
+fi
+
+echo "┌─ ${title} ${dashes}┐"
+echo "│                                                 │"
+echo "│  login:    ${user}${spaces_login}│"
+echo "│  password:                                      │"
+echo "│                                                 │"
+echo "└─────────────────────────────────────────────────┘"
