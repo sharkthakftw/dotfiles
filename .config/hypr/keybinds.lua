@@ -30,22 +30,6 @@ hl.bind("SUPER + N", hl.dsp.exec_cmd("pidof nvim || " .. programs.code))
 hl.bind("SUPER + K", hl.dsp.exec_cmd("pidof wikid || " .. programs.wikid))
 hl.bind("SUPER + W", hl.dsp.exec_cmd("hyprctl clients | grep zen || zen-browser"))
 
--- zooming
-local function zoomfunction(value)
-    local zoomvalue = hl.get_config("cursor:zoom_factor")
-    if (zoomvalue + value) > 3.0 then
-        hl.config({ cursor = { zoom_factor = 3.0 } })
-    elseif (zoomvalue + value) < 1.0 then
-        hl.config({ cursor = { zoom_factor = 1.0 } })
-    else
-        hl.config({ cursor = { zoom_factor = zoomvalue + value } })
-    end
-end
-hl.bind("SUPER + mouse_up", function() zoomfunction(-1.5) end, { repeating = true, description = "Misc: Zoom out" })
-hl.bind("SUPER + mouse_down", function() zoomfunction(1.5) end, { repeating = true, description = "Misc: Zoom in" })
-hl.bind("SUPER + Minus", function() zoomfunction(-1.5) end, { repeating = true, description = "Misc: Zoom out" })
-hl.bind("SUPER + Equal", function() zoomfunction(1.5) end, { repeating = true, description = "Misc: Zoom in" })
-
 -- hypr ecosystem
 hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("hyprshot -s -m region --clipboard-only --freeze"),
     { description = "Capture region to clipboard" })
@@ -81,6 +65,7 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- workspaces
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+hl.gesture({ fingers = 3, direction = "down", action = "special", workspace_name = "terminal" })
 for i = 1, 4 do
     hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
     hl.bind("SUPER + CTRL + " .. i, hl.dsp.window.move({ workspace = i }))

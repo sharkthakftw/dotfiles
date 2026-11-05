@@ -85,6 +85,7 @@ hl.window_rule({
     match = { class = "steam" },
     workspace = 2,
     group = "set invade",
+    float = false,
 })
 hl.window_rule({
     name = "steam2",
@@ -109,6 +110,11 @@ hl.window_rule({
     match = { class = "steam_proton" },
     workspace = 2,
     group = "set invade",
+})
+hl.window_rule({
+    name = "steamcontext",
+    match = { title = "" },
+    float = true,
 })
 hl.window_rule({
     name = "blender",
