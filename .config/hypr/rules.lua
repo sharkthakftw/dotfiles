@@ -41,14 +41,6 @@ float_center(
     { 400, 400 }
 )
 
-hl.window_rule({
-    name = "beeper",
-    match = { class = "Beeper" },
-    workspace = "special:msg",
-    fullscreen_state = "2 0",
-    focus_on_activate = true,
-})
-
 -- workspace 1
 hl.window_rule({
     name = "zen browser",
@@ -82,34 +74,38 @@ hl.window_rule({
 })
 hl.window_rule({
     name = "steam",
-    match = { class = "steam" },
+    match = { class = "^(steam)$" },
     workspace = 2,
     group = "set invade",
-    float = false,
+    tile = true,
 })
 hl.window_rule({
     name = "steam2",
     match = { class = "Steam" },
     workspace = 2,
     group = "set invade",
+    tile = true,
 })
-hl.window_rule({
-    name = "steam3",
-    match = { title = "Steam" },
-    workspace = 2,
-    group = "set invade",
-})
+-- hl.window_rule({
+--     name = "steam3",
+--     match = { title = "Steam" },
+--     workspace = 2,
+--     group = "set invade",
+--     float = false,
+-- })
 hl.window_rule({
     name = "steam_app",
     match = { class = "^(steam_app_.*)$" },
     workspace = 2,
     group = "set invade",
+    tile = true,
 })
 hl.window_rule({
     name = "steam_proton",
     match = { class = "steam_proton" },
     workspace = 2,
     group = "set invade",
+    tile = true,
 })
 hl.window_rule({
     name = "steamcontext",
@@ -126,12 +122,6 @@ hl.window_rule({
 hl.window_rule({
     name = "vlc",
     match = { class = "vlc" },
-    workspace = 3,
-    group = "set invade",
-})
-hl.window_rule({
-    name = "spotify",
-    match = { class = "Spotify" },
     workspace = 3,
     group = "set invade",
 })
@@ -200,11 +190,32 @@ hl.on("workspace.created", function(ws)
 end)
 
 -- special workspace: msg
+hl.window_rule({
+    name = "beeper",
+    match = { class = "Beeper" },
+    workspace = "special:msg",
+    fullscreen_state = "2 0",
+    focus_on_activate = true,
+})
 hl.workspace_rule({
     workspace = "special:msg",
 })
 hl.on("workspace.created", function(ws)
     if ws.name == "special:msg" and ws.is_empty then
         hl.exec_cmd("beeper", { workspace = ws.name .. " silent" })
+    end
+end)
+
+-- special workspace: music
+hl.window_rule({
+    name = "spotify",
+    match = { class = "Spotify" },
+    workspace = "special:music",
+    group = "set invade",
+    focus_on_activate = true,
+})
+hl.on("workspace.created", function(ws)
+    if ws.name == "special:music" and ws.is_empty then
+        hl.exec_cmd("spotify", { workspace = ws.name .. " silent" })
     end
 end)

@@ -66,14 +66,17 @@ hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 -- workspaces
 hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
 hl.gesture({ fingers = 3, direction = "down", action = "special", workspace_name = "terminal" })
+
 for i = 1, 4 do
     hl.bind("SUPER + " .. i, hl.dsp.focus({ workspace = i }))
     hl.bind("SUPER + CTRL + " .. i, hl.dsp.window.move({ workspace = i }))
 end
+
 hl.bind("SUPER + grave", hl.dsp.workspace.toggle_special("terminal"))
 hl.bind("SUPER + CTRL + grave", hl.dsp.window.move({ workspace = "special:terminal" }))
+
 hl.bind("SUPER + B", hl.dsp.workspace.toggle_special("msg"))
-hl.bind("SUPER + CTRL + B", hl.dsp.window.move({ workspace = "special:msg" }))
+hl.bind("SUPER + S", hl.dsp.workspace.toggle_special("music"))
 
 -- function keys
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
