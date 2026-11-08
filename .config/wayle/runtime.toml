@@ -87,6 +87,7 @@ icon-color = "fg-default"
 icon-bg-color = "bg-base"
 label-color = "fg-default"
 button-bg-color = "bg-base"
+middle-click = "spotify"
 
 [modules.microphone]
 icon-color = "fg-default"
@@ -110,6 +111,8 @@ icon-bg-color = "bg-base"
 label-show = false
 label-color = "fg-default"
 button-bg-color = "bg-base"
+middle-click = "beeper"
+popup-stacking-order = "oldest-first"
 popup-duration = 3000
 
 [modules.power]

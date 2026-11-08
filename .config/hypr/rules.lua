@@ -1,175 +1,78 @@
 local programs = require("programs")
 
+local autostart = {
+    ["special:terminal"] = programs.terminal,
+    ["special:msg"]      = "beeper",
+    ["special:music"]    = "spotify",
+    ["special:browser"]  = "zen-browser",
+}
+hl.on("workspace.created", function(ws)
+    local cmd = autostart[ws.name]
+    if cmd and ws.is_empty then
+        hl.exec_cmd(cmd, { workspace = ws.name .. " silent" })
+    end
+end)
+
 local function float_center(name, match, size)
     local rule = { name = name, match = match, float = true, center = true, group = "barred" }
     if size then rule.size = size end
     hl.window_rule(rule)
 end
 
-float_center(
-    "nemo",
-    { class = "nemo" },
-    { 900, 600 }
-)
-float_center(
-    "nautilus",
-    { class = "org.gnome.Nautilus" },
-    { 900, 600 }
-)
-float_center(
-    "yad",
-    { class = "yad" },
-    { 900, 600 }
-)
-float_center(
-    "peazip",
-    { class = "Peazip" },
-    { 900, 600 }
-)
-float_center(
-    "kdeconnect daemon",
-    { class = "org.kde.kdeconnect.daemon" }
-)
-float_center(
-    "kdeconnect app",
-    { class = "org.kde.kdeconnect.app" },
-    { 900, 600 }
-)
-float_center(
-    "screen-share-picker",
-    { class = "hyprland-share-picker" },
-    { 400, 400 }
-)
+local function assign(ws, apps, extra)
+    for _, app in ipairs(apps) do
+        local rule = { name = app[1], match = app[2], workspace = ws, group = "set invade", tile = true }
+        for k, v in pairs(extra or {}) do rule[k] = v end
+        hl.window_rule(rule)
+    end
+end
+
+float_center("nemo",                { class = "nemo" },                     { 900, 600 })
+float_center("nautilus",            { class = "org.gnome.Nautilus" },       { 900, 600 })
+float_center("yad",                 { class = "yad" },                      { 900, 600 })
+float_center("peazip",              { class = "Peazip" },                   { 900, 600 })
+float_center("kdeconnect app",      { class = "org.kde.kdeconnect.app" },   { 900, 600 })
+float_center("kdeconnect daemon",   { class = "org.kde.kdeconnect.daemon" })
+float_center("screen-share-picker", { class = "hyprland-share-picker" },    { 400, 400 })
 
 -- workspace 1
-hl.window_rule({
-    name = "zen browser",
-    match = { title = "^(Zen Browser)$" },
-    workspace = 1,
-    group = "set invade",
+assign(1, {
+    { "vesktop",      { class = "^vesktop$" } },
+    { "steam client", { class = "^[Ss]team$" } },
 })
 hl.window_rule({
-    name = "qbittorrent",
-    match = { class = "org.qbittorrent.qBittorrent" },
-    workspace = 1,
-    group = "set invade",
-})
-hl.window_rule({
-    name = "jdownloader2",
-    match = { title = "^(JDownloader 2)$" },
-    workspace = 1,
-    group = "set invade",
-})
-float_center(
-    "zen browser library",
-    { title = "Library" }
-)
-
--- workspace 2
-hl.window_rule({
-    name = "vesktop",
-    match = { class = "vesktop" },
-    workspace = 2,
-    group = "set invade",
-})
-hl.window_rule({
-    name = "steam",
-    match = { class = "^(steam)$" },
-    workspace = 2,
-    group = "set invade",
-    tile = true,
-})
-hl.window_rule({
-    name = "steam2",
-    match = { class = "Steam" },
-    workspace = 2,
-    group = "set invade",
-    tile = true,
-})
--- hl.window_rule({
---     name = "steam3",
---     match = { title = "Steam" },
---     workspace = 2,
---     group = "set invade",
---     float = false,
--- })
-hl.window_rule({
-    name = "steam_app",
-    match = { class = "^(steam_app_.*)$" },
-    workspace = 2,
-    group = "set invade",
-    tile = true,
-})
-hl.window_rule({
-    name = "steam_proton",
-    match = { class = "steam_proton" },
-    workspace = 2,
-    group = "set invade",
-    tile = true,
-})
-hl.window_rule({
-    name = "steamcontext",
-    match = { title = "" },
+    name = "steam popups",
+    match = { class = "^[Ss]team$", title = "^$" },
     float = true,
 })
-hl.window_rule({
-    name = "blender",
-    match = { class = "blender" },
-    workspace = 2,
-})
 
--- workspace 3
-hl.window_rule({
-    name = "vlc",
-    match = { class = "vlc" },
-    workspace = 3,
-    group = "set invade",
+-- workspace 2
+assign(2, {
+    { "steam games", { class = "^(steam_app_.*|steam_proton)$" } },
+    { "vlc",         { class = "vlc", title = "VLC media player" } },
 })
 float_center(
     "vlc file dialog",
-    { title = "^(Select one or more files to open — VLC media player)$" }
+    { class = "^vlc$",title = "^(Select one or more files to open)$" }
 )
 float_center(
     "vlc dir dialog",
-    { title = "^(Open Directory — VLC media player)$" }
+    { class = "^vlc$",title = "^(Open Directory)$" }
 )
 
+-- workspace 3
+assign(3, {
+    { "obsidian", { class = "^md.obsidian.Obsidian$" } },
+    { "sioyek",   { class = "^sioyek$" } },
+})
+
 -- workspace 4
-hl.window_rule({
-    name = "obsidian",
-    match = { class = "md.obsidian.Obsidian" },
-    workspace = 4,
-    group = "set invade",
-})
-hl.window_rule({
-    name = "sioyek",
-    match = { class = "sioyek" },
-    workspace = 4,
-    group = "set invade",
-})
-hl.window_rule({
-    name = "arduino ide",
-    match = { class = "Arduino IDE" },
-    workspace = 4,
-    group = "set invade",
-})
-hl.window_rule({
-    name = "stm32cubeide",
-    match = { class = "STM32CubeIDE" },
-    workspace = 4,
-    group = "set invade",
-})
-hl.window_rule({
-    name = "stm32cubemx",
-    match = { class = "com-st-microxplorer-maingui-STM32CubeMX" },
-    workspace = 4,
-    group = "set invade",
-})
-hl.window_rule({
-    name = "stm32cubeprogrammer",
-    match = { class = "com.st.app.Main" },
-    workspace = 4,
-    group = "set invade",
+assign(4, {
+    { "arduino ide",         { class = "^Arduino IDE$" } },
+    { "stm32cubeide",        { class = "^STM32CubeIDE$" } },
+    { "stm32cubemx",         { class = "^com-st-microxplorer-maingui-STM32CubeMX$" } },
+    { "stm32cubeprogrammer", { class = "^com.st.app.Main$" } },
+    { "blender",             { class = "blender" } },
 })
 
 -- special workspace: terminal
@@ -183,11 +86,6 @@ hl.window_rule({
 hl.workspace_rule({
     workspace = "special:terminal",
 })
-hl.on("workspace.created", function(ws)
-    if ws.name == "special:terminal" and ws.is_empty then
-        hl.exec_cmd(programs.terminal, { workspace = ws.name .. " silent" })
-    end
-end)
 
 -- special workspace: msg
 hl.window_rule({
@@ -200,11 +98,6 @@ hl.window_rule({
 hl.workspace_rule({
     workspace = "special:msg",
 })
-hl.on("workspace.created", function(ws)
-    if ws.name == "special:msg" and ws.is_empty then
-        hl.exec_cmd("beeper", { workspace = ws.name .. " silent" })
-    end
-end)
 
 -- special workspace: music
 hl.window_rule({
@@ -214,8 +107,20 @@ hl.window_rule({
     group = "set invade",
     focus_on_activate = true,
 })
-hl.on("workspace.created", function(ws)
-    if ws.name == "special:music" and ws.is_empty then
-        hl.exec_cmd("spotify", { workspace = ws.name .. " silent" })
-    end
-end)
+
+-- special workspace: browser
+hl.window_rule({
+    name = "zen",
+    match = { class = "zen" },
+    workspace = "special:browser",
+    group = "set invade",
+    focus_on_activate = true,
+})
+float_center("zen browser library", { title = "Library" }, { 900, 600 })
+
+-- special workspace: downloads
+assign("special:downloads silent", {
+    { "qbittorrent",  { class = "^org.qbittorrent.qBittorrent$" } },
+    { "jdownloader2", { title = "^(JDownloader 2)$" } },
+})
+
