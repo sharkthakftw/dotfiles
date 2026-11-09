@@ -42,6 +42,7 @@ hl.bind("SUPER + SHIFT + D", script("dnd"))
 hl.bind("SUPER + SHIFT + A", script("audio-toggle"))
 hl.bind("SUPER + SHIFT + B", script("battery-notif"))
 hl.bind("SUPER + CTRL + T", script("text-snatch"))
+hl.bind("SUPER + SHIFT + CTRL + F", hl.dsp.exec_cmd("sudo -n /usr/local/bin/fanmax toggle"))
 
 -- spotify
 hl.bind("CTRL + ALT + S", hl.dsp.exec_cmd("playerctl --player=spotify play-pause"))

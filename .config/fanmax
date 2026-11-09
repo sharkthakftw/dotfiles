@@ -1,0 +1,17 @@
+# location: /usr/local/bin/fanmax
+# permissions: 755
+# rule for /etc/sudoers.d/fanmax: %wheel ALL=(root) NOPASSWD: /usr/local/bin/fanmax
+
+#!/bin/bash
+for d in /sys/class/hwmon/hwmon*; do
+  [ "$(cat "$d/name")" = hp ] && hw="$d" && break
+done
+[ -n "$hw" ] || { echo "hp hwmon not found" >&2; exit 1; }
+case "$1" in
+  on)  echo 0 > "$hw/pwm1_enable" ;;
+  off) echo 2 > "$hw/pwm1_enable" ;;
+  toggle)
+    if [ "$(cat "$hw/pwm1_enable")" = 0 ]; then echo 2 > "$hw/pwm1_enable"
+    else echo 0 > "$hw/pwm1_enable"; fi ;;
+  *) echo "usage: fanmax on|off|toggle" >&2; exit 1 ;;
+esac
