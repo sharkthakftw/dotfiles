@@ -36,6 +36,11 @@ float_center("kdeconnect daemon",   { class = "org.kde.kdeconnect.daemon" })
 float_center("screen-share-picker", { class = "hyprland-share-picker" },    { 400, 400 })
 
 -- workspace 1
+hl.workspace_rule({
+    workspace = "1",
+    default = true,
+    persistent = true,
+})
 assign(1, {
     { "vesktop",      { class = "^vesktop$" } },
     { "steam client", { class = "^[Ss]team$" } },
@@ -47,6 +52,9 @@ hl.window_rule({
 })
 
 -- workspace 2
+hl.workspace_rule({
+    workspace = "2",
+})
 assign(2, {
     { "steam games", { class = "^(steam_app_.*|steam_proton)$" } },
     { "vlc",         { class = "vlc", title = "VLC media player" } },
@@ -61,12 +69,18 @@ float_center(
 )
 
 -- workspace 3
+hl.workspace_rule({
+    workspace = "3",
+})
 assign(3, {
     { "obsidian", { class = "^md.obsidian.Obsidian$" } },
     { "sioyek",   { class = "^sioyek$" } },
 })
 
 -- workspace 4
+hl.workspace_rule({
+    workspace = "4",
+})
 assign(4, {
     { "arduino ide",         { class = "^Arduino IDE$" } },
     { "stm32cubeide",        { class = "^STM32CubeIDE$" } },
@@ -76,6 +90,9 @@ assign(4, {
 })
 
 -- special workspace: terminal
+hl.workspace_rule({
+    workspace = "special:terminal",
+})
 hl.window_rule({
     name = "kitty",
     match = { class = "kitty" },
@@ -88,6 +105,9 @@ hl.workspace_rule({
 })
 
 -- special workspace: msg
+hl.workspace_rule({
+    workspace = "special:msg",
+})
 hl.window_rule({
     name = "beeper",
     match = { class = "Beeper" },
@@ -100,6 +120,9 @@ hl.workspace_rule({
 })
 
 -- special workspace: music
+hl.workspace_rule({
+    workspace = "special:music",
+})
 hl.window_rule({
     name = "spotify",
     match = { class = "Spotify" },
@@ -109,6 +132,9 @@ hl.window_rule({
 })
 
 -- special workspace: browser
+hl.workspace_rule({
+    workspace = "special:browser",
+})
 hl.window_rule({
     name = "zen",
     match = { class = "zen" },
@@ -119,6 +145,9 @@ hl.window_rule({
 float_center("zen browser library", { title = "Library" }, { 900, 600 })
 
 -- special workspace: downloads
+hl.workspace_rule({
+    workspace = "special:downloads",
+})
 assign("special:downloads silent", {
     { "qbittorrent",  { class = "^org.qbittorrent.qBittorrent$" } },
     { "jdownloader2", { title = "^(JDownloader 2)$" } },

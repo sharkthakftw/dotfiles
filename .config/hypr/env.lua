@@ -10,3 +10,6 @@ hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 
 -- toolkit backends
 hl.env("GDK_BACKEND", "wayland,x11,*")
+
+-- avoid the vulkan renderer waking the dGPU
+hl.env("GSK_RENDERER", "gl")

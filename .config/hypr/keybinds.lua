@@ -45,9 +45,10 @@ hl.bind("SUPER + CTRL + T", script("text-snatch"))
 hl.bind("SUPER + SHIFT + CTRL + F", hl.dsp.exec_cmd("sudo -n /usr/local/bin/fanmax toggle"))
 
 -- spotify
-hl.bind("CTRL + ALT + S", hl.dsp.exec_cmd("playerctl --player=spotify play-pause"))
-hl.bind("CTRL + ALT + D", hl.dsp.exec_cmd("playerctl --player=spotify next"))
-hl.bind("CTRL + ALT + A", hl.dsp.exec_cmd("playerctl --player=spotify previous"))
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl --player=spotify play-pause"), { locked = true })
+hl.bind("CTRL + ALT + S", hl.dsp.exec_cmd("playerctl --player=spotify play-pause"), { locked = true })
+hl.bind("CTRL + ALT + D", hl.dsp.exec_cmd("playerctl --player=spotify next"), { locked = true })
+hl.bind("CTRL + ALT + A", hl.dsp.exec_cmd("playerctl --player=spotify previous"), { locked = true })
 
 -- gpu screen recorder
 hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("gsr-ui-cli toggle-replay"))
@@ -58,7 +59,7 @@ hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind("SUPER + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- workspaces
-hl.gesture({ fingers = 3, direction = "horizontal", action = "workspace" })
+hl.gesture({ fingers = 3, direction = "left", action = "special", workspace_name = "browser" })
 hl.gesture({ fingers = 3, direction = "down", action = "special", workspace_name = "terminal" })
 hl.gesture({ fingers = 3, direction = "up", action = "special", workspace_name = "music" })
 

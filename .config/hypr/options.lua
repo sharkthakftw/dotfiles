@@ -50,6 +50,7 @@ hl.config({
         focus_on_activate = false,
         font_family = "monospace",
         on_focus_under_fullscreen = 0,
+        vrr = 0,
     },
     ecosystem = {
         no_update_news = false,
@@ -120,4 +121,7 @@ hl.config({
     quirks = {
         prefer_hdr = 0,
     },
+    opengl = {
+        nvidia_anti_flicker = true,
+    }
 })
