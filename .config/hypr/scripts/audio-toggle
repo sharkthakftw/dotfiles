@@ -4,7 +4,7 @@ set -euo pipefail
 # Speaker ID
 function get_speaker_id {
     local speaker="700 Series Chipset Family HD Audio Speaker"
-    local sinks=$(wpctl status | grep -A7 "Sinks:" | grep "$speaker" || true)
+    local sinks=$(wpctl status | grep -A10 "Sinks:" | grep "$speaker" || true)
     local node_id="${sinks##*│}"    # remove leading non-digit characters to isolate the id
     node_id="${node_id%%.*}"            # keep only up to the first '.'
     node_id="${node_id//[[:space:]]/}"  # strip all whitespace
@@ -20,7 +20,7 @@ function get_speaker_id {
 # buds id
 function get_buds_id {
     local buds="CMF Buds Pro 2"
-    local sinks=$(wpctl status | grep -A7 "Sinks:" | grep "$buds" || true)
+    local sinks=$(wpctl status | grep -A10 "Sinks:" | grep "$buds" || true)
     if [[ -z "$sinks" ]]; then
         notify-send -t 2000 "Error" "Buds not connected"  # Error popup
         return 1
