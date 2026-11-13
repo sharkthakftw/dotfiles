@@ -1,0 +1,11 @@
+#!/bin/sh
+BUS=2
+
+focused=$(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name')
+
+if [ "$focused" = "eDP-1" ]; then
+  [ "$1" = up ] && brightnessctl set 5%+ || brightnessctl set 5%-
+else
+  [ "$1" = up ] && op="+" || op="-"
+  ddcutil --bus=$BUS --noverify setvcp 10 $op 5
+fi

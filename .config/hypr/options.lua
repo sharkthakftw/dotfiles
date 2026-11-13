@@ -1,8 +1,19 @@
+local docked = #(hl.get_monitors()) > 1
+local odyssey = "desc:Samsung Electric Company Odyssey G50F HNAL800882"
+local laptop = "desc:Chimei Innolux Corporation 0x162E"
 hl.monitor({
-    output = "",
-    mode = "highres",
-    position = "auto",
-    scale = 1.20,
+    output = odyssey,
+    mode = "2560x1440@144",
+    position = "0x0",
+    scale = 1.333333,
+    vrr = 3,
+})
+hl.monitor({
+    output = laptop,
+    mode = "1920x1080@144",
+    position = docked and "1920x90" or "0x0",
+    scale = docked and 1.2 or 1,
+    vrr = 0,
 })
 
 hl.config({
@@ -50,7 +61,7 @@ hl.config({
         focus_on_activate = false,
         font_family = "monospace",
         on_focus_under_fullscreen = 0,
-        vrr = 0,
+        vrr = 3,
     },
     ecosystem = {
         no_update_news = false,
@@ -74,6 +85,7 @@ hl.config({
     },
     render = {
         direct_scanout = false,
+        cm_auto_hdr = 0,
     },
     group = {
         insert_after_current = false,

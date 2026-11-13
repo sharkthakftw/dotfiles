@@ -10,6 +10,7 @@ button-variant = "basic"
 button-icon-size = 0.8999999761581421
 button-rounding = "md"
 button-group-background = "bg-base"
+dropdown-shadow = false
 
 [[bar.layout]]
 monitor = "*"
@@ -114,6 +115,8 @@ button-bg-color = "bg-base"
 middle-click = "beeper"
 popup-stacking-order = "oldest-first"
 popup-duration = 3000
+popup-monitor = "HDMI-A-1"
+popup-close-behavior = "remove"
 
 [modules.power]
 border-color = "accent"
@@ -148,5 +151,10 @@ margin = 75.0
 
 [[wallpaper.monitors]]
 name = "eDP-1"
+fit-mode = "fit"
+wallpaper = "/home/sharkthak/.config/wallpapers/pixel-computer.png"
+
+[[wallpaper.monitors]]
+name = "HDMI-A-1"
 fit-mode = "fit"
 wallpaper = "/home/sharkthak/.config/wallpapers/pixel-computer.png"

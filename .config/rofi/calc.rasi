@@ -1,0 +1,75 @@
+
+* {
+    bg:          #1A1B1F;
+    bg-alt:      #202124;
+    surface:     #2A2B2F;
+    border-col:  #3B3C3F;
+    muted:       #7F8083;
+    fg:          #DADBDD;
+    accent:      #C75465;
+    green:       #65AD5F;
+    red:         #D04A3B;
+
+    background-color: @bg;
+    text-color: @fg;
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+window {
+    width: 420px;
+    location: center;
+    anchor: center;
+    background-color: @bg;
+    border: 1px;
+    border-color: @border-col;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+mainbox {
+    background-color: @bg;
+    children: [ inputbar, listview ];
+    spacing: 8px;
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border: 1px;
+    border-color: @border-col;
+    border-radius: 6px;
+    padding: 12px;
+    spacing: 8px;
+    children: [ entry ];
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;
+    placeholder: "calculate...";
+    placeholder-color: @muted;
+    cursor: text;
+}
+
+listview {
+    background-color: @bg;
+    lines: 4;
+    spacing: 3px;
+    scrollbar: false;
+}
+
+element {
+    background-color: transparent;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+element selected {
+    background-color: @surface;
+    text-color: @accent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+}
+
