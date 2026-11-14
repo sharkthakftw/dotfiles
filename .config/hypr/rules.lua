@@ -52,16 +52,17 @@ local function assign(ws, apps, extra)
     end
 end
 
-float_center("nemo",                { class = "nemo" },                     { 900, 600 })
-float_center("nautilus",            { class = "org.gnome.Nautilus" },       { 900, 600 })
-float_center("yad",                 { class = "yad" },                      { 900, 600 })
-float_center("peazip",              { class = "Peazip" },                   { 900, 600 })
-float_center("kdeconnect app",      { class = "org.kde.kdeconnect.app" },   { 900, 600 })
-float_center("kdeconnect daemon",   { class = "org.kde.kdeconnect.daemon" })
-float_center("screen-share-picker", { class = "hyprland-share-picker" },    { 400, 400 })
-float_center("zen browser library", { title = "Library" }, { 900, 600 })
-float_center("vlc file dialog",     { class = "^vlc$", title = "^(Select one or more files to open)$" })
-float_center("vlc dir dialog",      { class = "^vlc$", title = "^(Open Directory)$" })
+float_center("nemo",                   { class = "nemo" },                     { 900, 600 })
+float_center("nautilus",               { class = "org.gnome.Nautilus" },       { 900, 600 })
+float_center("yad",                    { class = "yad" },                      { 900, 600 })
+float_center("peazip",                 { class = "Peazip" },                   { 900, 600 })
+float_center("kdeconnect app",         { class = "org.kde.kdeconnect.app" },   { 900, 600 })
+float_center("kdeconnect daemon",      { class = "org.kde.kdeconnect.daemon" })
+float_center("screen-share-picker",    { class = "hyprland-share-picker" },    { 400, 400 })
+float_center("xdg-desktop-portal-gtk", { class = "xdg-desktop-portal-gtk" },   { 500, 500 })
+float_center("zen browser library",    { title = "Library" }, { 900, 600 })
+float_center("vlc file dialog",        { class = "^vlc$", title = "^(Select one or more files to open)$" })
+float_center("vlc dir dialog",         { class = "^vlc$", title = "^(Open Directory)$" })
 
 -- workspace 1
 if docked then

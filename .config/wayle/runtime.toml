@@ -4,7 +4,7 @@ font-mono = "JetBrainsMono Nerd Font"
 
 [bar]
 padding = 0.5
-bg = "transparent"
+bg = "bg-base"
 border-width = 2
 button-variant = "basic"
 button-icon-size = 0.8999999761581421
@@ -149,12 +149,20 @@ button-bg-color = "bg-base"
 duration = 2000
 margin = 75.0
 
+[wallpaper]
+transition-type = "none"
+transition-duration = 0.5
+cycling-enabled = true
+cycling-directory = "/home/sharkthak/.config/wallpapers/"
+cycling-interval-mins = 1
+cycling-same-image = true
+
 [[wallpaper.monitors]]
 name = "eDP-1"
-fit-mode = "fit"
-wallpaper = "/home/sharkthak/.config/wallpapers/pixel-computer.png"
+fit-mode = "stretch"
+wallpaper = ""
 
 [[wallpaper.monitors]]
 name = "HDMI-A-1"
-fit-mode = "fit"
-wallpaper = "/home/sharkthak/.config/wallpapers/pixel-computer.png"
+fit-mode = "stretch"
+wallpaper = ""
