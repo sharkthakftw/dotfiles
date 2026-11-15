@@ -1,4 +1,4 @@
-hl.env("AQ_DRM_DEVICES", "/dev/dri/intel-igpu:/dev/dri/nvidia-dgpu") -- symlinked using a udev rule
+hl.env("AQ_DRM_DEVICES", "/dev/dri/intel-igpu:/dev/dri/nvidia-dgpu")
 
 -- cursor
 hl.env("XCURSOR_SIZE", "24")
@@ -12,6 +12,3 @@ hl.env("QT_AUTO_SCREEN_SCALE_FACTOR", "1")
 
 -- toolkit backends
 hl.env("GDK_BACKEND", "wayland,x11,*")
-
--- avoid the vulkan renderer waking the dGPU
-hl.env("GSK_RENDERER", "gl")

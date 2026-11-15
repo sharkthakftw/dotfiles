@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SINKS=(
+    "700 Series Chipset Family HD Audio Speaker"
+    "Philips BT40BK"
+    "CMF Buds Pro 2"
+)
+
+# print the sinks section of wpctl status
+sink_lines() {
+    wpctl status | awk '/├─ Sinks:/{f=1; next} f && /├─|└─/{f=0} f'
+}
+
+ids=()      # ids of connected sinks, in cycle order
+names=()    # their names, for notifications
+default_id=""
+
+lines=$(sink_lines)
+
+# current default (the line with the '*')
+while IFS= read -r line; do
+    line="${line#*│}"
+    if [[ "$line" =~ ^[[:space:]]*\*[[:space:]]*([0-9]+)\. ]]; then
+        default_id="${BASH_REMATCH[1]}"
+        break
+    fi
+done <<< "$lines"
+
+# find the id of each wanted sink and skip ones that aren't connected
+for name in "${SINKS[@]}"; do
+    while IFS= read -r line; do
+        [[ "$line" == *"$name"* ]] || continue
+        line="${line#*│}"
+        if [[ "$line" =~ ^[[:space:]]*\*?[[:space:]]*([0-9]+)\. ]]; then
+            ids+=("${BASH_REMATCH[1]}")
+            names+=("$name")
+            break
+        fi
+    done <<< "$lines"
+done
+
+count=${#ids[@]}
+if (( count == 0 )); then
+    notify-send -t 2000 "Error" "No configured sinks found"
+    exit 1
+fi
+
+# find where the current default sits in our list
+cur_idx=-1
+for i in "${!ids[@]}"; do
+    if [[ "${ids[$i]}" == "$default_id" ]]; then
+        cur_idx=$i
+        break
+    fi
+done
+
+next_idx=$(( (cur_idx + 1) % count ))
+
+wpctl set-default "${ids[$next_idx]}"
+notify-send -t 500 "Audio output" "${names[$next_idx]}"

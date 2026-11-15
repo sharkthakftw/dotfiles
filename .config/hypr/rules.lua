@@ -29,15 +29,6 @@ hl.on("workspace.created", function(ws)
     end
 end)
 
--- reload only when the mode actually changes
-local function check_mode()
-    if dock.docked() ~= docked then
-        hl.exec_cmd("hyprctl reload")
-    end
-end
-hl.on("monitor.added", check_mode)
-hl.on("monitor.removed", check_mode)
-
 local function float_center(name, match, size)
     local rule = { name = name, match = match, float = true, center = true, group = "barred" }
     if size then rule.size = size end
@@ -78,6 +69,7 @@ hl.window_rule({
     name = "steam client",
     match = { class = "^[Ss]team$" },
     workspace = docked and "2 silent" or "1 silent",
+    group = "set invade",
     tile = true,
     float = false,
     no_initial_focus = true,
@@ -160,4 +152,12 @@ end
 assign("special:downloads silent", {
     { "qbittorrent",  { class = "^org.qbittorrent.qBittorrent$" } },
     { "jdownloader2", { title = "^(JDownloader 2)$" } },
+})
+
+hl.layer_rule({
+    name = "notif popup",
+    match = {
+        namespace = "wayle-notification-popup",
+    },
+    no_screen_share = true,
 })

@@ -103,7 +103,7 @@ hl.config({
             disable_when_only = true,
             scrolling = false,
             height = 20,
-            indicator_height = 3,
+            indicator_height = 2,
             render_titles = false,
             font_family = "monospace",
             stacked = false,

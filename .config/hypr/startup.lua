@@ -4,7 +4,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("wayle panel start")
     hl.exec_cmd("kdeconnectd")
 
-    -- apps start 2 seconds later
+    -- apps start 3 seconds later
     hl.exec_cmd([[sh -c 'sleep 3
         zen-browser &
         vesktop &

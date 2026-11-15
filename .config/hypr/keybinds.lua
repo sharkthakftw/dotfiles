@@ -47,7 +47,7 @@ hl.bind("SUPER + CTRL + F", script("kde-file-share"))
 
 -- scripts
 hl.bind("SUPER + SHIFT + D", script("dnd"))
-hl.bind("SUPER + SHIFT + A", script("audio-toggle"))
+hl.bind("SUPER + SHIFT + A", script("cycle-sinks"))
 hl.bind("SUPER + SHIFT + B", script("battery-notif"))
 hl.bind("SUPER + CTRL + T", script("text-snatch"))
 hl.bind("SUPER + SHIFT + CTRL + F", hl.dsp.exec_cmd("sudo -n /usr/local/bin/fanmax toggle"))
@@ -104,7 +104,7 @@ end
 hl.bind("SUPER + B", app_key(6, "^Beeper$",  hl.dsp.workspace.toggle_special("msg")))
 hl.bind("SUPER + S", app_key(6, "^Spotify$", hl.dsp.workspace.toggle_special("music")))
 hl.bind("SUPER + W", app_key(1, "zen",       hl.dsp.workspace.toggle_special("browser")))
-hl.bind("SUPER + V", app_key(6, "^vesktop$"))
+hl.bind("SUPER + V", app_key(6, "^vesktop$", hl.dsp.focus({ window = "class:vesktop" })))
 
 hl.bind("SUPER + D", hl.dsp.workspace.toggle_special("downloads"))
 
