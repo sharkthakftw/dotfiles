@@ -101,10 +101,10 @@ local function app_key(ws, class, fallback)
     end
 end
 
-hl.bind("SUPER + B", app_key(6, "^Beeper$",  hl.dsp.workspace.toggle_special("msg")))
-hl.bind("SUPER + S", app_key(6, "^Spotify$", hl.dsp.workspace.toggle_special("music")))
-hl.bind("SUPER + W", app_key(1, "zen",       hl.dsp.workspace.toggle_special("browser")))
-hl.bind("SUPER + V", app_key(6, "^vesktop$", hl.dsp.focus({ window = "class:vesktop" })))
+hl.bind("SUPER + B", app_key(6, "^zapfast$",  hl.dsp.workspace.toggle_special("msg")))
+hl.bind("SUPER + S", app_key(6, "^Spotify$",  hl.dsp.workspace.toggle_special("music")))
+hl.bind("SUPER + W", app_key(1, "zen",        hl.dsp.workspace.toggle_special("browser")))
+hl.bind("SUPER + V", app_key(6, "^vesktop$",  hl.dsp.focus({ window = "class:vesktop" })))
 
 hl.bind("SUPER + D", hl.dsp.workspace.toggle_special("downloads"))
 

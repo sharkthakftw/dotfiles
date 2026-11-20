@@ -10,7 +10,7 @@ hl.on("hyprland.start", function()
         vesktop &
         obsidian &
         spotify &
-        beeper &
+        zapfast &
         for f in /sys/class/drm/card*-*/status; do
             case "$f" in
                 *eDP*) ;;

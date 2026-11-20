@@ -17,7 +17,7 @@ if docked then
 else
     autostart["special:terminal"] = programs.terminal
     autostart["special:browser"]  = "zen-browser"
-    autostart["special:msg"]      = "beeper"
+    autostart["special:msg"]      = "zapfast"
     autostart["special:music"]    = "spotify"
 end
 hl.on("workspace.created", function(ws)
@@ -105,14 +105,14 @@ assign(4, {
 -- workspace 6
 if docked then
     assign(6, {
-        { "vesktop", { class = "^vesktop$" } },
-        { "spotify", { class = "Spotify" } },
-        { "beeper",  { class = "Beeper" } },
+        { "vesktop",  { class = "^vesktop$" } },
+        { "spotify",  { class = "Spotify" } },
+        { "zapfast",  { class = "zapfast" } },
     })
 else
     hl.window_rule({
-        name = "beeper",
-        match = { class = "Beeper" },
+        name = "zapfast",
+        match = { class = "zapfast" },
         workspace = "special:msg silent",
         group = "set invade",
         focus_on_activate = true,
