@@ -1,0 +1,10 @@
+[[bar.layout]]
+monitor = "eDP-1"
+show = true
+left = ["dashboard"]
+center = ["clock", "notifications"]
+right  = [
+  "network", "bluetooth",
+  { name = "audio", modules = ["volume", "microphone"] },
+  "battery", "power",
+]

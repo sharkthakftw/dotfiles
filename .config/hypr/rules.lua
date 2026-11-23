@@ -29,6 +29,21 @@ hl.on("workspace.created", function(ws)
     end
 end)
 
+-- reload only when the mode actually changes
+local pending = false
+local function check_mode()
+    if pending then return end
+    pending = true
+    hl.timer(function()
+        pending = false
+        if dock.docked() ~= docked then
+            hl.exec_cmd("hyprctl reload")
+        end
+    end, { timeout = 3000, type = "oneshot" })
+end
+hl.on("monitor.added", check_mode)
+hl.on("monitor.removed", check_mode)
+
 local function float_center(name, match, size)
     local rule = { name = name, match = match, float = true, center = true, group = "barred" }
     if size then rule.size = size end

@@ -1,0 +1,16 @@
+[[bar.layout]]
+monitor = "HDMI-A-1"
+show = true
+left = ["power"]
+center = ["clock", "notifications"]
+right  = [
+  "network", "bluetooth",
+  { name = "audio", modules = ["volume", "microphone"] },
+  "battery",
+]
+
+[[bar.layout]]
+monitor = "eDP-1"
+left   = [{ name = "media", modules = ["media", "cava"] }]
+center = []
+right  = ["brightness", { name = "system", modules = ["cpu", "ram", "storage"] }]
