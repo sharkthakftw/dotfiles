@@ -6,7 +6,7 @@ local function script(name)
 end
 
 local function docked()
-    return #(hl.get_monitors()) > 1
+    return hl.get_monitor("HDMI-A-1") ~= nil
 end
 
 -- fullscreen
@@ -46,6 +46,7 @@ hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("kdeconnect-cli --send-clipboard -n 
 hl.bind("SUPER + CTRL + F", script("kde-file-share"))
 
 -- scripts
+hl.bind("SUPER + CTRL + V", script("clip"))
 hl.bind("SUPER + SHIFT + D", script("dnd"))
 hl.bind("SUPER + SHIFT + A", script("cycle-sinks"))
 hl.bind("SUPER + SHIFT + B", script("battery-notif"))

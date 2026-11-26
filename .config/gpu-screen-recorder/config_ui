@@ -6,10 +6,12 @@
     "joystick_hotkeys_enable_option": "enable_hotkeys",
     "language": "",
     "notification_speed": "fast",
+    "rounded_corners": true,
     "show_hide_hotkey": {
       "key": 0,
       "modifiers": 0
     },
+    "show_tray_icon": true,
     "software_encoding_warning_shown": false,
     "tint_color": "amd",
     "wayland_warning_shown": true
@@ -43,6 +45,7 @@
       "framerate_mode": "auto",
       "low_power_mode": false,
       "overclock": false,
+      "pixel_format": "yuv420",
       "record_area_height": 1080,
       "record_area_option": "focused_monitor",
       "record_area_width": 1920,
@@ -105,6 +108,7 @@
       "framerate_mode": "auto",
       "low_power_mode": false,
       "overclock": false,
+      "pixel_format": "yuv420",
       "record_area_height": 1080,
       "record_area_option": "focused_monitor",
       "record_area_width": 1920,
@@ -210,6 +214,7 @@
       "framerate_mode": "auto",
       "low_power_mode": false,
       "overclock": false,
+      "pixel_format": "yuv420",
       "record_area_height": 0,
       "record_area_option": "focused_monitor",
       "record_area_width": 0,

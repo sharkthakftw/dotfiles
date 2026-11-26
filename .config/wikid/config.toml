@@ -22,7 +22,7 @@ rounded_borders = false
 icons = false
 scroll_indicator = false
 stats = false
-dim_inactive_panes = false
+dim_inactive_panes = true
 
 [search]
 limit = 15
@@ -30,7 +30,7 @@ limit = 15
 [network]
 timeout = 10
 offline_cache = true
-cache_lifetime = 24
+cache_lifetime = 168
 
 [input]
 mouse_support = true
