@@ -27,9 +27,11 @@ hl.bind("SUPER + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 
 -- launchers
 hl.bind("SUPER + Space", hl.dsp.exec_cmd(programs.menu))
+hl.bind("SUPER + SHIFT + Space", script("tofi-prime"))
 hl.bind("SUPER + T", hl.dsp.exec_cmd(programs.terminal))
 hl.bind("SUPER + E", hl.dsp.exec_cmd(programs.filemanager))
 hl.bind("SUPER + N", hl.dsp.exec_cmd(programs.code))
+hl.bind("SUPER + K", hl.dsp.exec_cmd(programs.wikid))
 
 -- hypr ecosystem
 hl.bind("SUPER + SHIFT + CTRL + R", hl.dsp.reload_config())
