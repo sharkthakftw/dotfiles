@@ -5,25 +5,18 @@ local function script(name)
     return hl.dsp.exec_cmd(scripts .. name)
 end
 
+local function bind_reset(key, action)
+    hl.bind(key, function()
+        hl.dispatch(action)
+        hl.dispatch(hl.dsp.submap("reset"))
+    end)
+end
+
 local function docked()
     return hl.get_monitor("HDMI-A-1") ~= nil
 end
 
--- fullscreen
-hl.bind("SUPER + F", hl.dsp.window.fullscreen_state({ internal = 1, client = 0 }))
-hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen_state({ internal = 2, client = 0, action = "toggle" }))
-
--- groups / windows
-hl.bind("SUPER + TAB", hl.dsp.group.next())
-hl.bind("SUPER + SHIFT + TAB", hl.dsp.group.prev())
-hl.bind("SUPER + CTRL + TAB", function()
-    hl.dispatch(hl.dsp.window.cycle_next())
-    hl.dispatch(hl.dsp.window.bring_to_top())
-end)
-hl.bind("SUPER + G", hl.dsp.group.toggle())
-hl.bind("SUPER + SHIFT + G", hl.dsp.window.move({ out_of_group = true }))
-hl.bind("SUPER + Q", hl.dsp.window.close())
-hl.bind("SUPER + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind("SUPER + escape", hl.dsp.exec_cmd("wayle panel toggle"))
 
 -- launchers
 hl.bind("SUPER + Space", hl.dsp.exec_cmd(programs.menu))
@@ -32,38 +25,83 @@ hl.bind("SUPER + T", hl.dsp.exec_cmd(programs.terminal))
 hl.bind("SUPER + E", hl.dsp.exec_cmd(programs.filemanager))
 hl.bind("SUPER + N", hl.dsp.exec_cmd(programs.code))
 hl.bind("SUPER + K", hl.dsp.exec_cmd(programs.wikid))
-
--- hypr ecosystem
-hl.bind("SUPER + SHIFT + CTRL + R", hl.dsp.reload_config())
-hl.bind("SUPER + CTRL + S", hl.dsp.exec_cmd("hyprshot -s -m region --clipboard-only --freeze"))
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("hyprshot -s -m window -m active -o ~/Pictures -f grab.png"))
-hl.bind("SUPER + SHIFT + C", hl.dsp.exec_cmd("pkill hyprpicker || hyprpicker -arl"))
-hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("pkill hyprsunset || hyprsunset -t 5000"))
-hl.bind("SUPER + L", hl.dsp.exec_cmd("hyprlock"))
-hl.bind("SUPER + escape", hl.dsp.exec_cmd("wayle panel toggle"))
 hl.bind("SUPER + C", hl.dsp.exec_cmd("rofi -show calc -modi calc -no-show-match -no-sort -no-persist-history -theme ~/.config/rofi/calc.rasi"))
 
--- kde connect
-hl.bind("SUPER + CTRL + C", hl.dsp.exec_cmd("kdeconnect-cli --send-clipboard -n s26"))
-hl.bind("SUPER + CTRL + F", script("kde-file-share"))
+-- windows
+hl.bind("SUPER + Q", hl.dsp.window.close())
+hl.bind("SUPER + SHIFT + W", hl.dsp.submap("window"))
+hl.define_submap("window", function()
+    hl.bind("Escape", hl.dsp.submap("reset"))
 
--- scripts
-hl.bind("SUPER + CTRL + V", script("clip"))
-hl.bind("SUPER + SHIFT + D", script("dnd"))
-hl.bind("SUPER + SHIFT + A", script("cycle-sinks"))
-hl.bind("SUPER + SHIFT + B", script("battery-notif"))
-hl.bind("SUPER + CTRL + T", script("text-snatch"))
-hl.bind("SUPER + SHIFT + CTRL + F", hl.dsp.exec_cmd("sudo -n /usr/local/bin/fanmax toggle"))
+    bind_reset("M", hl.dsp.window.fullscreen_state({ internal = 1, client = 0 }))
+    bind_reset("F", hl.dsp.window.fullscreen_state({ internal = 2, client = 0, action = "toggle" }))
+    bind_reset("G", hl.dsp.group.toggle())
+    bind_reset("SHIFT + G", hl.dsp.window.move({ out_of_group = true }))
+    bind_reset("V", hl.dsp.window.float({ action = "toggle" }))
+end)
+hl.bind("SUPER + TAB", hl.dsp.group.next())
+hl.bind("SUPER + SHIFT + TAB", hl.dsp.group.prev())
+hl.bind("SUPER + CTRL + TAB", function()
+    hl.dispatch(hl.dsp.window.cycle_next())
+    hl.dispatch(hl.dsp.window.bring_to_top())
+end)
+
+-- kde connect
+hl.bind("SUPER + SHIFT + K", hl.dsp.submap("kde"))
+hl.define_submap("kde", function()
+    hl.bind("Escape", hl.dsp.submap("reset"))
+
+    bind_reset("C", hl.dsp.exec_cmd("kdeconnect-cli --send-clipboard -n s26"))
+    bind_reset("F", script("kde-file-share"))
+end)
+
+-- screenshot/recording
+hl.bind("SUPER + SHIFT + S", hl.dsp.submap("scr"))
+hl.define_submap("scr", function()
+    hl.bind("Escape", hl.dsp.submap("reset"))
+
+    bind_reset("S", hl.dsp.exec_cmd("hyprshot -s -m region --clipboard-only --freeze"))
+    bind_reset("W", hl.dsp.exec_cmd("hyprshot -s -m window -m active -o ~/Pictures -f grab.png"))
+    bind_reset("C", hl.dsp.exec_cmd("pkill hyprpicker || hyprpicker -arl"))
+    bind_reset("T", script("text-snatch"))
+    bind_reset("R", hl.dsp.exec_cmd("gsr-ui-cli replay-save"))
+    bind_reset("SHIFT + R", hl.dsp.exec_cmd("gsr-ui-cli toggle-replay"))
+    bind_reset("V", script("clip"))
+end)
+
+-- system
+hl.bind("SUPER + X", hl.dsp.submap("system"))
+hl.define_submap("system", function()
+    hl.bind("Escape", hl.dsp.submap("reset"))
+
+    hl.bind("V", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true })
+    hl.bind("SHIFT + V", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true })
+    hl.bind("B", hl.dsp.exec_cmd("~/.config/hypr/scripts/brightness up"), { locked = true, repeating = false })
+    hl.bind("SHIFT + B", hl.dsp.exec_cmd("~/.config/hypr/scripts/brightness down"), { locked = true, repeating = false })
+    bind_reset("M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
+    bind_reset("SHIFT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"))
+    bind_reset("F", hl.dsp.exec_cmd("sudo -n /usr/local/bin/fanmax toggle"))
+    bind_reset("N", hl.dsp.exec_cmd("pkill hyprsunset || hyprsunset -t 5000"))
+    bind_reset("D", script("dnd"))
+    hl.bind("A", script("cycle-sinks"))
+    bind_reset("P", script("battery-notif"))
+    bind_reset("R", hl.dsp.reload_config())
+    bind_reset("L", hl.dsp.exec_cmd("hyprlock"))
+end)
 
 -- spotify
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl --player=spotify play-pause"), { locked = true })
 hl.bind("CTRL + ALT + S", hl.dsp.exec_cmd("playerctl --player=spotify play-pause"), { locked = true })
 hl.bind("CTRL + ALT + D", hl.dsp.exec_cmd("playerctl --player=spotify next"), { locked = true })
 hl.bind("CTRL + ALT + A", hl.dsp.exec_cmd("playerctl --player=spotify previous"), { locked = true })
+hl.bind("SUPER + M", hl.dsp.submap("spotify"))
+hl.define_submap("spotify", function()
+   hl.bind("Escape", hl.dsp.submap("reset"))
 
--- gpu screen recorder
-hl.bind("SUPER + SHIFT + R", hl.dsp.exec_cmd("gsr-ui-cli toggle-replay"))
-hl.bind("SUPER + R", hl.dsp.exec_cmd("gsr-ui-cli replay-save"))
+    bind_reset("S", hl.dsp.exec_cmd("playerctl --player=spotify play-pause"))
+    hl.bind("D", hl.dsp.exec_cmd("playerctl --player=spotify next"))
+    hl.bind("A", hl.dsp.exec_cmd("playerctl --player=spotify previous"))
+end)
 
 -- mouse window management
 hl.bind("SUPER + mouse:272", hl.dsp.window.drag(), { mouse = true })
@@ -115,7 +153,5 @@ hl.bind("SUPER + D", hl.dsp.workspace.toggle_special("downloads"))
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true })
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
-hl.bind("SUPER + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
-hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"))
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("~/.config/hypr/scripts/brightness up"), { locked = true, repeating = false })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("~/.config/hypr/scripts/brightness down"), { locked = true, repeating = false })
